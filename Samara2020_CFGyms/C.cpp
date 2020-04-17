@@ -59,7 +59,7 @@ struct Point2D {
 };
 
 void sol() {
-    ///Rotate 45 degree, |x1 - x2| + |y1 - y2| = abs(|xx1 - xx2|, |yy1 - yy2|);
+    ///Rotate 45 degree, |x1 - x2| + |y1 - y2| = max(|xx1 - xx2|, |yy1 - yy2|);
     ///F(delta): number of pairwise distinct points A, B so Dist(A, B) <= delta
     ///Lenma: F(delta) <= F(delta + 1)
     ///So the answer is delta if delta is the lowest number that is F(delta) >= K
