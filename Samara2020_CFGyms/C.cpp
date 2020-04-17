@@ -105,7 +105,7 @@ void sol() {
     function<long long(int)> Fdelta = [&](int delta) {
         ///calculate pair (i, j) i < j:
         ///a[j].x - a[i].x <= delta
-        ///|a[j].y - a[i].y| <= delta => a[i].y - delta <= a[j].y <= a[i].y + delta
+        ///|a[j].y - a[i].y| <= delta => a[j].y - delta <= a[i].y <= a[j].y + delta
         FenwickTree df(sz);
         int L = 0;
         long long res = 0;
