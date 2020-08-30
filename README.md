@@ -5,7 +5,8 @@
 ## 2018 German Collegiate Programming Contest (GCPC 18)
 
 [Link contest](https://codeforces.com/gym/102021)
-[Code](/2020 ICPC Universidad Nacional de Colombia Programming Contest)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/GCPC18_CFGyms)
 
 [2019 ICPC Asia Danang Regional Contest](https://danang19.kattis.com/)
 [The ICPC 2019 - Vietnam Central Provincial Contest](http://acmicpc-vietnam.github.io/2019/central/scoreboard.html)
