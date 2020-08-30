@@ -8,9 +8,44 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/GCPC18_CFGyms)
 
-[2019 ICPC Asia Danang Regional Contest](https://danang19.kattis.com/)
-[The ICPC 2019 - Vietnam Central Provincial Contest](http://acmicpc-vietnam.github.io/2019/central/scoreboard.html)
-[ICPC Vietnam National Programming Contest 2019](https://vietnam-national19.kattis.com/)
-[2019, XII Samara Regional Intercollegiate Programming Contest](https://codeforces.com/gym/102215)
-[2020, XIII Samara Regional Intercollegiate Programming Contest](https://codeforces.com/gym/102569)
-[CodeWar 2019](https://codelearn.io/fights/detail/139257)
+## 2019 ICPC Asia Danang Regional Contest
+
+[Link contest](https://danang19.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019DaNangRegional)
+
+
+## The ICPC 2019 - Vietnam Central Provincial Contest
+
+[Link contest](http://acmicpc-vietnam.github.io/2019/central/scoreboard.html)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamCentral)
+
+
+## ICPC Vietnam National Programming Contest 2019
+
+[Link contest](https://vietnam-national19.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamNational)
+
+
+## 2019, XII Samara Regional Intercollegiate Programming Contest
+
+[Link contest](https://codeforces.com/gym/102215)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Samara2019_CFGyms)
+
+
+## 2020, XIII Samara Regional Intercollegiate Programming Contest
+
+[Link contest](https://codeforces.com/gym/102569)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Samara2020_CFGyms)
+
+## 2020 ICPC Universidad Nacional de Colombia Programming Contest
+
+[Link contest](https://codeforces.com/gym/102700)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Universidad%20Nacional%20de%20Colombia%20Programming%20Contest)
+
+## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
