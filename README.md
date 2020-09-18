@@ -78,6 +78,6 @@
 
 [Link contest](https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202019)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)%202019)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202019)
 
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
