@@ -74,4 +74,10 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20North%20American%20Qualifier%20Contest)
 
+## Nordic Collegiate Programming Contest (NCPC) 2019
+
+[Link contest](https://open.kattis.com/problem-sources/Nordic%20Collegiate%20Programming%20Contest%20%28NCPC%29%202019)
+
+[Code]()
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
