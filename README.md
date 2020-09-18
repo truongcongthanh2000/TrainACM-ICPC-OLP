@@ -70,7 +70,7 @@
 
 ## 2019 ICPC North American Qualifier Contest
 
-[Link contest](https://open.kattis.com/problem-sources/2019%20ICPC%20North%20American%20Qualifier%20Contest)
+[Link contest](https://naq19.kattis.com/standings)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20North%20American%20Qualifier%20Contest)
 
