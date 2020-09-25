@@ -80,4 +80,10 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202019)
 
+## 2019 ICPC Mid-Central Regional
+
+[Link contest](https://mcpc19.kattis.com/standings)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Mid-Central%20Regional)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
