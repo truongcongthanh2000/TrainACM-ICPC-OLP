@@ -86,4 +86,9 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Mid-Central%20Regional)
 
+## 2019 South Central USA Regional Contest
+[Link contest](https://scusa19.kattis.com/standings)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Mid-Central%20Regional)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
