@@ -82,9 +82,9 @@
 
 ## 2019 ICPC Mid-Central USA Regional Contest
 
-[Link contest](https://mcpc19.kattis.com/standings)
+[Link contest](https://mcpc19.kattis.com/problems?fbclid=IwAR0ZxgPh93CdmBLVwDWZi3JQTEhR9kJ6yeQMI7oRN4UPP7IrzXIiuEpHp4Q)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Mid-Central%20Regional)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Mid-Central%20USA%20Regional%20Contest)
 
 ## 2019 South Central USA Regional Contest
 
