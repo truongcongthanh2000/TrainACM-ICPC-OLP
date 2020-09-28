@@ -92,4 +92,9 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20South%20Central%20USA%20Regional%20Contest)
 
+## 2019-2020 ICPC Asia Taipei-Hsinchu Regional Contest
+[Link contest](https://codeforces.com/gym/102460)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019-2020%20ICPC%20Asia%20Taipei-Hsinchu%20Regional%20Contest)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
