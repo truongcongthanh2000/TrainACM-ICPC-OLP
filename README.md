@@ -97,4 +97,9 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019-2020%20ICPC%20Asia%20Taipei-Hsinchu%20Regional%20Contest)
 
+## Mid-Central USA Programming Contest 2018
+[Link contest](https://mcpc18.kattis.com/problems)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019-2020%20ICPC%20Asia%20Taipei-Hsinchu%20Regional%20Contest)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
