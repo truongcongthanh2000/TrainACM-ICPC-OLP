@@ -1,68 +1,134 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define frac pair<ll, ll>
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#define _USE_MATH_DEFINES
+#include <bits/stdc++.h>
+
 using namespace std;
 
-ll gcd(ll a, ll b){
-    if(b==0)return a;
-    return gcd(b, a%b);
+#define INP "solve"
+#define OUT "solve"
+
+const long long INF_LL = 1e17;
+const int INF = 1e9 + 100;
+const int MOD = 1e9 + 7;
+const int Base = 30;
+const double EPS = 1e-9;
+const int BLOCK = 1000;
+const int dx[4] = {0, 0, 1, -1};
+const int dy[4] = {1, -1, 0, 0};
+
+void open_file() {
+    #ifdef THEMIS
+        freopen(INP ".inp","r",stdin);
+        freopen(OUT ".out","w",stdout);
+    #endif // THEMIS
 }
 
-frac add(frac p1, frac p2){
-    ll div = gcd(abs(p1.second), abs(p2.second));
-    ll den = (p1.second / div) * p2.second;
-    ll num = p1.first * (p2.second / div) + p2.first * (p1.second / div);
-    div = gcd(abs(num), abs(den));
-    return {num/div, den/div};
+const int maxN = 5e5 + 10;
+
+long long gcd(long long x, long long y) {
+    return y == 0 ? abs(x) : gcd(y, x % y);
 }
 
-int main(){
-    string line;
-    ll aux;
-    bool currentneg, acumneg;
-    while(getline(cin, line)){
-        stack<bool> signs;
-        vector<frac> formula;
-        aux = 0;
-        currentneg = false;
-        acumneg = false;
-        for(int i = 0 ; i < line.length(); i++){
-            if(line[i] == '('){
-                acumneg = acumneg ^ currentneg;
-                signs.push(currentneg);
-                currentneg = false;
-                continue;
-            }
-            if(line[i] == ')'){
-                acumneg = acumneg ^ signs.top();
-                signs.pop();
-                continue;
-            }
-            if(line[i] == '+'){
-                formula.back().second = aux;
-                aux = 0;
-                currentneg = false;
-                continue;
-            }
-            if(line[i] == '-'){
-                formula.back().second = aux;
-                aux = 0;
-                currentneg = true;
-                continue;
-            }
-            if(line[i] == '/'){
-                if(acumneg ^ currentneg)aux = -aux;
-                formula.push_back({aux, 0});
-                aux = 0;
-                continue;
-            }
-            aux = aux * 10 + (line[i] - '0');
+long long lcm(long long x, long long y) {
+    return x / gcd(x, y) * y;
+}
+struct Fraction{
+    long long x, y;
+    Fraction(){};
+    Fraction(long long _x, long long _y) : x(_x), y(_y) {
+        normal();
+    };
+    void normal() {
+        long long GCD = gcd(x, y);
+        x /= GCD;
+        y /= GCD;
+        if (y < 0) {
+            x *= -1;
+            y *= -1;
         }
-        formula.back().second = aux;
-        frac res = {0, 1};
-        for(int i=0;i<formula.size();i++){
-            res = add(res, formula[i]);
-        }
-        cout<<res.first<<"/"<<res.second<<endl;
     }
+    Fraction operator+ (const Fraction& A){
+        long long mau = lcm(y, A.y);
+        long long tu = x * (mau / y) + (mau / A.y) * A.x;
+        return Fraction(tu, mau);
+    }
+    Fraction operator- (const Fraction& A){
+        long long mau = lcm(y, A.y);
+        long long tu = x * (mau / y) - (mau / A.y) * A.x;
+        return Fraction(tu, mau);
+    }
+};
+
+bool is_val(char s){
+    return '0' <= s && s <= '9';
+}
+
+void sol() {
+    string s;
+    while (getline(cin, s)){
+        s = '(' + s + ')';
+        int i = 0;
+        auto fn = [&](int &i){
+            long long tu = 0;
+            while (i < (int)s.size() && is_val(s[i]))
+                tu = tu * 10 + (s[i++] - '0');
+            return tu;
+        };
+
+        stack<Fraction> st;
+        stack<char> op;
+        while (i < (int)s.size()){
+            if (is_val(s[i])) {
+                long long tu = fn(i);
+                i++;
+                long long mau = fn(i);
+                st.push(Fraction(tu, mau));
+            }
+            else{
+                if (s[i] == ')'){
+                    cerr << "ok" << '\n';
+                    vector<Fraction> process;
+                    vector<char> tmp_op;
+                    while (op.top() != '(') {
+                        Fraction F = st.top(); process.push_back(F);
+                        tmp_op.push_back(op.top());
+                        st.pop(); op.pop();
+                    }
+                    process.push_back(st.top()); st.pop();
+                    tmp_op.push_back('+'); op.pop();
+                    Fraction res(0, 1);
+                    assert((int)process.size() == (int)tmp_op.size());
+                    for (int i = 0; i < (int)process.size(); i++) {
+                        if (tmp_op[i] == '+') res = res + process[i];
+                        else res = res - process[i];
+                    }
+                    st.push(res);
+                }
+                else {
+                    op.push(s[i]);
+                }
+                i++;
+            }
+        }
+        cout << st.top().x << "/" << st.top().y << '\n';
+    }
+}
+
+void solve() {
+    int T;
+    //cin >> T;
+    T = 1;
+    int TestCase = 0;
+    while (T--) {
+        TestCase += 1;
+        //cout << "Case #" << TestCase << ":" << ' ';
+        ///cout << "Case #" << TestCase << '\n';
+        sol();
+    }
+}
+int main(int argc,char *argv[]) {
+    //srand(time(nullptr));
+    ios_base::sync_with_stdio(0); cin.tie(nullptr); cout.tie(nullptr);
+    open_file();
+    solve();
 }
