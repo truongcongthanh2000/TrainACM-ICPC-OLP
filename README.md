@@ -112,6 +112,6 @@
 
 [Link contest](https://naq18.kattis.com/standings)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Universidad%20Nacional%20de%20Colombia%20Programming%20Contest)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20North%20American%20Qualifier%20Contest)
 
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
