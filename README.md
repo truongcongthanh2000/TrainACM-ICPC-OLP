@@ -114,4 +114,10 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20North%20American%20Qualifier%20Contest)
 
+## 2018 ICPC North Central North America Regional Contest
+
+[Link contest](https://ncna18.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20North%20Central%20North%20America%20Regional%20Contest)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
