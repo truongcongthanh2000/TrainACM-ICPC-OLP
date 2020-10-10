@@ -25,6 +25,143 @@ void Diophante(long long a, long long b, long long &d, long long&x)
 }
 
 {
+    ///Pisano periods (or Pisano numbers): period of Fibonacci numbers mod n.
+    ///https://oeis.org/A001175
+    struct matrix {
+        long long c[2][2];
+        void init() {
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) c[i][j] = 0;
+            }
+        }
+    };
+    long long Mul(long long x, long long y,long long m) /// Tinh (x * y) mod M voi (x,y, M <= 10 ^ 18)
+    {
+        x %= m; y %= m;
+        long long q = (long double) x * y / m;
+        long long r = (x * y - q * m) % m;
+        if (r < 0) r += m;
+        return r;
+    }
+    struct Fibo {
+        long long module;
+        Fibo(long long _module = 0) : module(_module) {};
+        matrix nhan(matrix a,matrix b) {
+            matrix C;
+            C.init();
+            for (int k = 0; k < 2; k++) {
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        long long val = Mul(a.c[i][k], b.c[k][j], module);
+                        C.c[i][j] = (C.c[i][j] + val) % module;
+                    }
+                }
+            }
+            return C;
+        }
+        matrix Get(long long n) {
+            matrix a;
+            a.c[0][0] = 0; a.c[0][1] = 1;
+            a.c[1][0] = 1; a.c[1][1] = 1;
+            matrix Res;
+            Res.init();
+            for (int i = 0; i < 2; i++) Res.c[i][i] = 1;
+            for (; n; n = n >> 1, a = nhan(a,a)) {
+                if (n & 1) Res = nhan(Res,a);
+            }
+            return Res;
+        }
+    };
+    long long F(long long n, long long m) {
+        if (n == 0) return 0;
+        Fibo fb(m);
+        long long fn = fb.Get(n).c[0][1];
+        return fn;
+    }
+    long long pisano_prime_brute(int p) {
+        int f0 = 0, f1 = 1;
+        for (long long sz = 2; ; sz++) {
+            int f2 = f0 + f1;
+            if (f2 >= p) f2 -= p;
+            if (f1 == 0 && f2 == 1) {
+                return sz - 1;
+            }
+            f0 = f1;
+            f1 = f2;
+        }
+    }
+    vector<int> factors(int p) {
+        vector<int> res;
+        for (int i = 1; i * i <= p; i++) {
+            if (p % i == 0) {
+                res.push_back(i);
+                res.push_back(p / i);
+            }
+        }
+        sort(res.begin(), res.end());
+        res.resize(unique(res.begin(), res.end()) - res.begin());
+        return res;
+    }
+    bool isPower(int n, int p) {
+        while (n % p == 0) n /= p;
+        return n == 1;
+    }
+    long long pisano_prime(int p) {
+        if (isPower(p, 2)) return 1LL * p * 3 / 2;
+        if (isPower(p, 5)) return 1LL * p * 4;
+        if (p % 5 == 1 || p % 5 == 4) {
+            vector<int> factor = factors(p - 1);
+            for (int n : factor) {
+                long long c = F(n, p);
+                long long d = F(n + 1, p);
+                if (c == 0 && d == 1) return n;
+            }
+        }
+        else {
+            vector<int> factor = factors(2 * p + 2);
+            for (int n : factor) {
+                long long c = F(n, p);
+                long long d = F(n + 1, p);
+                if (c == 0 && d == 1) return n;
+            }
+        }
+        return 0;
+    }
+    long long gcd(long long x, long long y) {
+        return y == 0 ? x : gcd(y, x % y);
+    }
+    long long lcm(long long x, long long y) {
+        return x / gcd(x, y) * y;
+    }
+    long long pisano(int n) {
+        vector<pair<int, int> > primes;
+        int x = n;
+        for (int i = 2; i * i <= x; i++) {
+            if (n % i == 0) {
+                int d = 0;
+                while (n % i == 0) {
+                    n /= i;
+                    d++;
+                }
+                primes.push_back({i, d});
+            }
+        }
+        if (n > 1) {
+            primes.push_back({n, 1});
+        }
+        long long res = 1;
+        for (auto it : primes) {
+            int p = it.first;
+            int w = it.second;
+            long long cost = 1;
+            for (int i = 1; i < w; i++) cost *= p;
+            cost *= pisano_prime(p);
+            res = lcm(res, cost);
+        }
+        return res;
+    }
+}
+{
     ///minimum enclosing circle O(N)
     ///https://www.geeksforgeeks.org/minimum-enclosing-circle-set-2-welzls-algorithm/
     struct Point {
