@@ -120,4 +120,10 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20North%20Central%20North%20America%20Regional%20Contest)
 
+## 2017 ICPC Ho Chi Minh City Regional Contest
+
+[Link contest](https://hochiminh17.kattis.com/standings)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
