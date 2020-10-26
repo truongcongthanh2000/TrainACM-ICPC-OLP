@@ -126,10 +126,17 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest)
 
-## 2020 ICPC Vietnam Southern Provincial
+## 2020 ICPC Vietnam Southern Provincial Contest
 
 [Link contest]()
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Southern%20Provincial)
+
+## 2018 ICPC South Central USA Regional Contest
+
+[Link contest](https://scusa18.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Southern%20Provincial)
+
 
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
