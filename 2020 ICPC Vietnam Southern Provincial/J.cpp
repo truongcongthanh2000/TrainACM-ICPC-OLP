@@ -1,0 +1,104 @@
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#define _USE_MATH_DEFINES
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define INP "solve"
+#define OUT "solve"
+
+const long long INF_LL = 1e17;
+const int INF = 1e9 + 100;
+const int MOD = 1e9 + 7;
+const int Base = 311;
+const double EPS = 1e-9;
+const int BLOCK = 1000;
+const int dx[4] = {0, 0, 1, -1};
+const int dy[4] = {1, -1, 0, 0};
+mt19937 rnd(chrono::system_clock::now().time_since_epoch().count());
+
+void open_file() {
+    #ifdef THEMIS
+        freopen(INP ".inp","r",stdin);
+        freopen(OUT ".out","w",stdout);
+    #endif // THEMIS
+}
+
+const int maxN = 5e3 + 100;
+
+int Used[maxN], match[maxN];
+vector<int> adj[maxN];
+vector<int> stk;
+int tmp[maxN];
+
+bool DFS(int u) {
+    Used[u] = 1;
+    stk.push_back(u);
+    for (int v : adj[u]) {
+        if (match[v] == 0 || (Used[match[v]] == 0 && DFS(match[v]))) {
+            match[v] = u;
+            return true;
+        }
+    }
+    return false;
+}
+
+void sol() {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 1; i <= m; i++) {
+        int u, v;
+        cin >> u >> v;
+        if (u == v) {
+            cout << "No";
+            return;
+        }
+        adj[i] = {u, v, u + n, v + n};
+    }
+    for (int i = 1; i <= m; i++) {
+        stk.clear();
+        if (DFS(i) == false) {
+            cout << "No";
+            return;
+        }
+        for (int v : stk) Used[v] = 0;
+    }
+    for (int i = 1; i <= n; i++) {
+        adj[m + 1] = {i};
+        adj[m + 2] = {i + n};
+        for (int i = 1; i <= 2 * n; i++) tmp[i] = match[i];
+        stk.clear();
+        if (DFS(m + 1) == false) {
+            cout << "No";
+            return;
+        }
+        for (int v : stk) Used[v] = 0;
+        stk.clear();
+        if (DFS(m + 2) == false) {
+            cout << "No";
+            return;
+        }
+        for (int v : stk) Used[v] = 0;
+        for (int i = 1; i <= 2 * n; i++) match[i] = tmp[i];
+    }
+    cout << "Yes";
+}
+
+void solve() {
+    int T;
+    //cin >> T;
+    T = 1;
+    int TestCase = 0;
+    while (T--) {
+        TestCase += 1;
+        //cout << "Case " << TestCase << ":" << ' ';
+        ///cout << "Case #" << TestCase << '\n';
+        sol();
+    }
+}
+int main(int argc,char *argv[]) {
+    //srand(time(nullptr));
+    ios_base::sync_with_stdio(0); cin.tie(nullptr); cout.tie(nullptr);
+    open_file();
+    solve();
+}
