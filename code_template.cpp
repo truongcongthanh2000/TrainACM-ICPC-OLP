@@ -25,6 +25,65 @@ void Diophante(long long a, long long b, long long &d, long long&x)
 }
 
 {
+    ///IT Line: Max y = ax + b;
+    struct Line {
+        ///y = a * x + b;
+        long long a, b;
+        Line(){};
+        Line(long long _a, long long _b) {
+            a = _a;
+            b = _b;
+        }
+    };
+
+    Line IT[maxN * 4];
+    vector<long long> realX; ///maybe not used
+    long long get(Line L, int x) {
+        if (L.a == 0 && L.b == 0) return -INF_LL;
+        return L.a * realX[x] + L.b;
+    }
+    void update(int i, int L, int R, int u, int v, Line val) {
+        if (L > v || R < u) return;
+        int mid = (L + R) >> 1;
+        if (L >= u && R <= v) {
+            if (get(IT[i], L) >= get(val, L) && get(IT[i], R) >= get(val, R)) return;
+            if (get(IT[i], L) <= get(val, L) && get(IT[i], R) <= get(val, R)) {
+                IT[i] = val;
+                return;
+            }
+            if (get(IT[i], L) >= get(val, L) && get(IT[i], mid) >= get(val, mid)) {
+                update(i << 1 | 1, mid + 1, R, u, v, val);
+                return;
+            }
+            if (get(IT[i], L) <= get(val, L) && get(IT[i], mid) <= get(val, mid)) {
+                update(i << 1 | 1, mid + 1, R, u, v, IT[i]);
+                IT[i] = val;
+                return;
+            }
+            if (get(IT[i], mid + 1) >= get(val, mid + 1) && get(IT[i], R) >= get(val, R)) {
+                update(i << 1, L, mid, u, v, val);
+                return;
+            }
+            if (get(IT[i], mid + 1) <= get(val, mid + 1) && get(IT[i], R) <= get(val, R)) {
+                update(i << 1, L, mid, u, v, IT[i]);
+                IT[i] = val;
+                return;
+            }
+        }
+        update(i << 1, L, mid, u, v, val);
+        update(i << 1 | 1, mid + 1, R, u, v, val);
+    }
+    long long get(int i, int L, int R, int x)
+    {
+        if (L > x || R < x) return -INF_LL;
+        if (L >= x && R <= x) return get(IT[i], x);
+        int mid = (L + R) >> 1;
+        long long left = get(i << 1, L, mid, x);
+        long long right = get(i << 1 | 1, mid + 1, R, x);
+        return max(max(left,right), get(IT[i], x));
+    }
+}
+{
     ///Pisano periods (or Pisano numbers): period of Fibonacci numbers mod n.
     ///https://oeis.org/A001175
     struct matrix {
@@ -699,12 +758,12 @@ struct DinicFlow { ///Base 0-th, The vertices are numbered from 0 to n - 1
 
     DinicFlow(int _n = 0) {
         n = _n; numEdge = 0;
-        head.assign(n, -1);
-        work.assign(n, -1);
-        Dist.assign(n, 0);
+        head.assign(n + 7, -1);
+        work.assign(n + 7, -1);
+        Dist.assign(n + 7, 0);
     }
 
-    void add_Edge(int u, int v, int c1, int c2) {///if flow > int, use long long c1, c2
+    void add_Edge(int u, int v, int c1, int c2 = 0) {///if flow > int, use long long c1, c2
         ///u -> v: c1
         point.push_back(v); flow.push_back(0); cap.push_back(c1); next.push_back(head[u]); head[u] = numEdge++;
         ///v -> u: c2
@@ -713,7 +772,7 @@ struct DinicFlow { ///Base 0-th, The vertices are numbered from 0 to n - 1
 
     bool BFS(int s, int t) { ///check has path from s to t
         queue <int> Q;
-        for (int i = 0; i < n; i++) Dist[i] = -1;
+        for (int i = 0; i <= n; i++) Dist[i] = -1;
         Dist[s] = 0;
         Q.push(s);
         while ((int)Q.size() != 0) {
@@ -752,7 +811,7 @@ struct DinicFlow { ///Base 0-th, The vertices are numbered from 0 to n - 1
     int maxFlow(int s, int t) { ///if flow > int, use long long
         int Flow = 0;
         while (BFS(s, t)) {
-            for (int i = 0; i < n; i++) work[i] = head[i];
+            for (int i = 0; i <= n; i++) work[i] = head[i];
             while (true) {
                 int d = DFS(s, t, oo);
                 if (d == 0) break;
