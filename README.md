@@ -140,7 +140,7 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20South%20Central%20USA%20Regional%20Contest)
 
-## 2018 German Collegiate Programming Contest (GCPC 18)
+## The 2018 Nordic Collegiate Programming Contest
 
 [Link contest](https://ncpc18.kattis.com/?fbclid=IwAR3ibvozc-ooYim0oQV1hiXL_z1ESZfDx1leLlYvoMboiwqQJIa6QClSQ2I)
 
