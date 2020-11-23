@@ -162,4 +162,10 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20National%20Contest)
 
+## Nordic Collegiate Programming Contest (NCPC) 2020
+
+[Link contest](https://ncpc20.kattis.com/standings)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20National%20Contest)
+
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
