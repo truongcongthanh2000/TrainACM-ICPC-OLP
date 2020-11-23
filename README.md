@@ -166,6 +166,6 @@
 
 [Link contest](https://ncpc20.kattis.com/standings)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)%202020)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202020)
 
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
