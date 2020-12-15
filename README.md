@@ -172,7 +172,7 @@
 
 [Link contest](https://cantho20.kattis.com/standings)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202020)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC%20Asia%20Can%20Tho%20Regional%20Contest%202020)
 
 ICPC Asia Can Tho Regional Contest 2020
 
