@@ -174,6 +174,4 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC%20Asia%20Can%20Tho%20Regional%20Contest%202020)
 
-ICPC Asia Can Tho Regional Contest 2020
-
 ## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
