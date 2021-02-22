@@ -1,36 +1,38 @@
-## 2018 German Collegiate Programming Contest (GCPC 18)
+## ICPC Asia Can Tho Regional Contest 2020
 
-[Link contest](https://codeforces.com/gym/102021)
+[Link contest](https://cantho20.kattis.com/standings)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/GCPC18_CFGyms)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC%20Asia%20Can%20Tho%20Regional%20Contest%202020)
 
-## 2019 ICPC Asia Danang Regional Contest
+## 2020 ICPC Vietnam Northern and Central Provincial Contest
 
-[Link contest](https://danang19.kattis.com/)
+[Link contest](http://icpcvn.github.io/)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019DaNangRegional)
+[Problem](http://icpcvn.github.io/2020/northern-central/problems.pdf)
 
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Northern%20and%20Central%20Provincial%20Contest)
 
-## The ICPC 2019 - Vietnam Central Provincial Contest
+## 2020 ICPC Vietnam National Contest
 
-[Link contest](http://acmicpc-vietnam.github.io/2019/central/scoreboard.html)
+[Link contest](http://icpcvn.github.io/)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamCentral)
+[Problem]()
 
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20National%20Contest)
 
-## ICPC Vietnam National Programming Contest 2019
+## Nordic Collegiate Programming Contest (NCPC) 2020
 
-[Link contest](https://vietnam-national19.kattis.com/)
+[Link contest](https://ncpc20.kattis.com/standings)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamNational)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202020)
 
+## 2020 ICPC Vietnam Southern Provincial Contest
 
-## 2019, XII Samara Regional Intercollegiate Programming Contest
+[Link contest](http://icpcvn.github.io/)
 
-[Link contest](https://codeforces.com/gym/102215)
+[Problem](http://icpcvn.github.io/2020/southern/problems.pdf)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Samara2019_CFGyms)
-
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Southern%20Provincial)
 
 ## 2020, XIII Samara Regional Intercollegiate Programming Contest
 
@@ -43,6 +45,32 @@
 [Link contest](https://codeforces.com/gym/102700)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Universidad%20Nacional%20de%20Colombia%20Programming%20Contest)
+
+## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
+
+## 2019 ICPC Asia Danang Regional Contest
+
+[Link contest](https://danang19.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019DaNangRegional)
+
+## ICPC Vietnam National Programming Contest 2019
+
+[Link contest](https://vietnam-national19.kattis.com/)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamNational)
+
+## The ICPC 2019 - Vietnam Central Provincial Contest
+
+[Link contest](http://acmicpc-vietnam.github.io/2019/central/scoreboard.html)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC2019VietNamCentral)
+
+## 2019, XII Samara Regional Intercollegiate Programming Contest
+
+[Link contest](https://codeforces.com/gym/102215)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Samara2019_CFGyms)
 
 ## 2019-2020 ICPC Southwestern European Regional Programming Contest (SWERC 2019-20)
 
@@ -93,16 +121,23 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019-2020%20ICPC%20Asia%20Taipei-Hsinchu%20Regional%20Contest)
 
-##  2018  Mid-Central USA Programming Contest
-[Link contest](https://mcpc18.kattis.com/problems)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20Mid-Central%20Regional)
-
 ## 2019 ICPC Universidad Nacional de Colombia Programming Contest
 
 [Link contest](https://codeforces.com/gym/102307)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2019%20ICPC%20Universidad%20Nacional%20de%20Colombia%20Programming%20Contest)
+
+## 2018 German Collegiate Programming Contest (GCPC 18)
+
+[Link contest](https://codeforces.com/gym/102021)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/GCPC18_CFGyms)
+
+##  2018  Mid-Central USA Programming Contest
+
+[Link contest](https://mcpc18.kattis.com/problems)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20Mid-Central%20Regional)
 
 ## 2018 ICPC North American Qualifier Contest
 
@@ -116,20 +151,6 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018%20ICPC%20North%20Central%20North%20America%20Regional%20Contest)
 
-## 2017 ICPC Ho Chi Minh City Regional Contest
-
-[Link contest](https://hochiminh17.kattis.com/standings)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest)
-
-## 2020 ICPC Vietnam Southern Provincial Contest
-
-[Link contest](http://icpcvn.github.io/)
-
-[Problem](http://icpcvn.github.io/2020/southern/problems.pdf)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Southern%20Provincial)
-
 ## 2018 ICPC South Central USA Regional Contest
 
 [Link contest](https://scusa18.kattis.com/)
@@ -142,32 +163,8 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/The%202018%20Nordic%20Collegiate%20Programming%20Contest)
 
-## 2020 ICPC Vietnam Northern and Central Provincial Contest
+## 2017 ICPC Ho Chi Minh City Regional Contest
 
-[Link contest](http://icpcvn.github.io/)
+[Link contest](https://hochiminh17.kattis.com/standings)
 
-[Problem](http://icpcvn.github.io/2020/northern-central/problems.pdf)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20Northern%20and%20Central%20Provincial%20Contest)
-
-## 2020 ICPC Vietnam National Contest
-
-[Link contest](http://icpcvn.github.io/)
-
-[Problem]()
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020%20ICPC%20Vietnam%20National%20Contest)
-
-## Nordic Collegiate Programming Contest (NCPC) 2020
-
-[Link contest](https://ncpc20.kattis.com/standings)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20\(NCPC\)%202020)
-
-## ICPC Asia Can Tho Regional Contest 2020
-
-[Link contest](https://cantho20.kattis.com/standings)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC%20Asia%20Can%20Tho%20Regional%20Contest%202020)
-
-## [CodeWar 2019](https://codelearn.io/fights/detail/139257)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2017%20ACM%20-%20ICPC%20Asia%20Ho%20Chi%20Minh%20City%20Regional%20Contest)
