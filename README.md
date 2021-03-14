@@ -8,7 +8,7 @@
 
 [Link contest](https://codeforces.com/gym/102966)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC%20Asia%20Can%20Tho%20Regional%20Contest%202020)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20-%20Gran%20Premio%20de%20Mexico%20-%20Repechaje)
 
 ## ACM-ICPC in seasons 2018-2019 and 2019-2020
 
