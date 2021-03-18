@@ -4,7 +4,13 @@
 
 ## ACM-ICPC in season 2020-2021
 
-## 2020-2021 ICPC - Gran Premio de Mexico - Repechaje
+## ICPC Bergen Open 2019 (Date: 17/03/2021 - 10/11 Problems)
+
+[Link contest](https://open.kattis.com/contests/uyezuj)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/blob/master/Bergen%20Open%202019)
+
+## 2020-2021 ICPC - Gran Premio de Mexico - Repechaje (Date: 10/03/2021 - 12/14 Problems)
 
 [Link contest](https://codeforces.com/gym/102966)
 
