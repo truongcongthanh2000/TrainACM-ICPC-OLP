@@ -62,8 +62,8 @@ void sol(){
     double L = 0, R = 1e6;
     for (int i = 0; i < 60; i++) {
         double mid = (L + R) / 2.0;
-        if (ok(mid)) L = mid + 1;
-        else R = mid - 1;
+        if (ok(mid)) L = mid;
+        else R = mid;
     }
     cout << fixed << setprecision(10) << (L + R) / 2.0;
 }
