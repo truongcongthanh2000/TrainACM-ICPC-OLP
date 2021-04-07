@@ -4,6 +4,12 @@
 
 ## ACM-ICPC in season 2020-2021
 
+## Northwestern Europe Regional Contest (NWERC) 2020 (Date: 07/04/2021 - 8/11 Problems)
+
+[Link contest](https://open.kattis.com/contests/pevfei)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202020)
+
 ## 2018-2019 ACM-ICPC Southeastern European Regional Programming Contest (SEERC 2018) (Date: 31/03/2021 - 5/11 Problems)
 
 [Link contest](https://codeforces.com/gym/101964)
