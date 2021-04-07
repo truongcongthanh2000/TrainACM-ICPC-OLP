@@ -1,3 +1,7 @@
+## Northwestern Europe Regional Contest (NWERC) 2020
+[Link contest] (https://www.nwerc.eu/)
+[Code] (https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202020)
+
 ## ICPC Asia Can Tho Regional Contest 2020
 
 [Link contest](https://cantho20.kattis.com/standings)
