@@ -8,12 +8,12 @@
 ## Team achievement
 
 ### In 2019
-#### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
-#### Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
+1. #### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
+2. #### Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
 ### In 2020
-#### Silver Medal ICPC 2020 Asia Can Tho Regional
-#### Silver Medal ICPC 2020 Vietnam National Contest
-#### Silver Medal ICPC 2020 Vietnam Southern Provinial Contest
+1. #### Silver Medal ICPC 2020 Asia Can Tho Regional
+2. #### Silver Medal ICPC 2020 Vietnam National Contest
+3. #### Silver Medal ICPC 2020 Vietnam Southern Provinial Contest
 
 ## ACM-ICPC in season 2020-2021
 
