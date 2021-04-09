@@ -1,8 +1,8 @@
 # TrainACM-ICPC-OLP with team HCMUT OnlyBoys
 
 ## Member in team
-1. Trương Công Thành - [codeforces: congthanh123 (max rating: <span style="color:orange;">(master, 2177)</span> )](https://codeforces.com/profile/congthanh123)
-2. Trần Thanh Bình - [codeforces: binhtranmcs (max rating: candidate master, 1967)](https://codeforces.com/profile/binhtranmcs)
+1. Trương Công Thành - [codeforces: congthanh123 (max rating: Master, 2177)](https://codeforces.com/profile/congthanh123)
+2. Trần Thanh Bình - [codeforces: binhtranmcs (max rating: Candidate Master, 1967)](https://codeforces.com/profile/binhtranmcs)
 3. Trần Đức Duy - [codeforces: tin2016_tdduy (max rating: Expert, 1667)](https://codeforces.com/profile/tin2016_tdduy)
 
 [my team in codeforces](https://codeforces.com/team/60278)
