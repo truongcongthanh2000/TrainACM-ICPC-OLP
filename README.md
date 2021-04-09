@@ -1,6 +1,11 @@
-# TrainACM-ICPC-OLP
+# TrainACM-ICPC-OLP with team HCMUT OnlyBoys
 
+## Member in team
+1. Trương Công Thành - [account codeforces: congthanh123 (max rating: master, 2177)](https://codeforces.com/profile/congthanh123)
+2. Trần Thanh Bình - [account codeforces: binhtranmcs (max rating: candidate master, 1967)](https://codeforces.com/profile/binhtranmcs)
+3. Trần Đức Duy - [account codeforces: tin2016_tdduy (max rating: Expert, 1667)](https://codeforces.com/profile/tin2016_tdduy)
 [my team in codeforces](https://codeforces.com/team/60278)
+
 
 ## ACM-ICPC in season 2020-2021
 
@@ -15,8 +20,6 @@
 [Link contest](https://codeforces.com/gym/101964)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2018-2019%20ACM-ICPC%20Southeastern%20European%20Regional%20Programming%20Contest%20(SEERC%202018))
-
-## ACM-ICPC in season 2020-2021
 
 ## ICPC Bergen Open 2019 (Date: 17/03/2021 - 10/11 Problems)
 
