@@ -5,7 +5,15 @@
 2. Trần Thanh Bình - [codeforces: binhtranmcs (max rating: Candidate Master, 1967)](https://codeforces.com/profile/binhtranmcs)
 3. Trần Đức Duy - [codeforces: tin2016_tdduy (max rating: Expert, 1667)](https://codeforces.com/profile/tin2016_tdduy)
 
-[my team in codeforces](https://codeforces.com/team/60278)
+## Team achievement
+
+### In 2019
+1. Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
+2. Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
+### In 2020
+1. Silver Medal ICPC 2020 Asia Can Tho Regional
+2. Silver Medal ICPC 2020 Vietnam National Contest
+3. Silver Medal ICPC 2020 Vietnam Southern Provinial Contest
 
 ## ACM-ICPC in season 2020-2021
 
