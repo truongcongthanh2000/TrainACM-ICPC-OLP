@@ -7,7 +7,6 @@
 
 [my team in codeforces](https://codeforces.com/team/60278)
 
-
 ## ACM-ICPC in season 2020-2021
 
 ## Northwestern Europe Regional Contest (NWERC) 2020 (Date: 07/04/2021 - 8/11 Problems)
