@@ -17,6 +17,12 @@
 
 ## ACM-ICPC in season 2020-2021
 
+## 2020-2021 ICPC, NERC, Southern and Volga Russian Regional Contest (Date: 14/04/2021 - 12/14 Problems)
+
+[Link contest](https://codeforces.com/contest/1468)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202020)
+
 ## Northwestern Europe Regional Contest (NWERC) 2020 (Date: 07/04/2021 - 8/11 Problems)
 
 [Link contest](https://open.kattis.com/contests/pevfei)
