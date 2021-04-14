@@ -21,7 +21,7 @@
 
 [Link contest](https://codeforces.com/contest/1468)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Northwestern%20Europe%20Regional%20Contest%20(NWERC)%202020)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2020-2021%20ICPC%2C%20NERC%2C%20Southern%20and%20Volga%20Russian%20Regional%20Contest)
 
 ## Northwestern Europe Regional Contest (NWERC) 2020 (Date: 07/04/2021 - 8/11 Problems)
 
