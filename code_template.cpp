@@ -25,6 +25,376 @@ void Diophante(long long a, long long b, long long &d, long long&x)
 }
 
 {
+    ///MOD NUM, MOD < 2^31
+    template<int _MOD>
+    class num_t {
+    //    long long Mul(long long x, long long y,long long m) /// Tinh (x * y) mod M voi (x,y, M <= 10 ^ 18)
+    //    {
+    //        x %= m; y %= m;
+    //        long long q = (long double) x * y / m;
+    //        long long r = (x * y - q * m) % m;
+    //        if (r < 0) r += m;
+    //        return r;
+    //    }
+        static constexpr int MOD = _MOD;
+
+    private:
+        int value;
+
+        static int power(int a, int n) {
+            int ans = 1;
+            for (; n; n >>= 1, a = 1LL * a * a % MOD) {
+                if (n & 1) {
+                    ans = 1LL * ans * a % MOD;
+                }
+            }
+            return ans;
+        }
+
+    //    static int inverse(int a, int m) {
+    //        a %= m;
+    //        assert(a);
+    //        return a == 1 ? 1 : int(m - 1LL * inverse(m, a)) * m / a);
+    //    }
+
+        static int inverse(int a) {
+            return power(a, MOD - 2);
+        }
+    public:
+        num_t() : value(0) {};
+        template<typename U>
+        num_t(U _value) { value = _value % MOD; if (value < 0) value += MOD; }
+
+        friend ostream& operator << (ostream& out, const num_t &n) {return out << int(n); }
+        friend istream& operator >> (istream& in, num_t &n) {long long _value; in >> _value; n = num_t(_value); return in; }
+
+        bool operator == (const num_t &other) {return value == other.value; }
+        bool operator != (const num_t &other) {return !(*this == other); }
+
+        void operator = (const num_t &other) {value = other.value; }
+
+        template<typename U>
+        void operator = (U other) {value = other;};
+
+        operator int() const { return value; }
+
+        num_t power(int n) const {
+            num_t ans;
+            ans.value = power(value, n);
+            return ans;
+        };
+
+        num_t inverse() const {
+            num_t ans;
+            ans.value = inverse(value);
+            return ans;
+        }
+
+        friend num_t inverse(const num_t &other) {return other.inverse(); }
+
+        num_t& operator += (const num_t &other) {
+            value += other.value;
+            if (value >= MOD) value -= MOD;
+            return *this;
+        }
+
+        template<typename U>
+        num_t& operator += (U other) {
+            return *this += num_t(other);
+        }
+
+        num_t& operator -= (const num_t &other) {
+            value -= other.value;
+            if (value < 0) value += MOD;
+            return *this;
+        }
+
+        template<typename U>
+        num_t& operator -= (U other) {
+            return *this -= num_t(other);
+        }
+
+        num_t& operator *= (const num_t &other) {
+            value = 1LL * value * other.value % MOD;
+            return *this;
+        }
+
+        num_t& operator /= (const num_t &other) {
+            return *this *= other.inverse();
+        }
+
+        num_t& operator ++ () {
+            value++;
+            if (value >= MOD) value -= MOD;
+            return *this;
+        }
+
+        num_t operator ++ (int) {
+            num_t ans(*this);
+            *this += 1;
+            return ans;
+        }
+
+
+        num_t& operator -- () {
+            value++;
+            if (value < 0) value += MOD;
+            return *this;
+        }
+
+        num_t operator -- (int) {
+            num_t ans(*this);
+            this -= 1;
+            return ans;
+        }
+
+        num_t operator - () const {
+            return num_t(-value);
+        }
+
+        friend num_t operator + (const num_t &a, const num_t &b) {return num_t(a) += b; }
+        template<typename U> friend num_t operator + (const num_t &a, U b) {return num_t(a) += b; }
+        template<typename U> friend num_t operator + (U a, const num_t &b) {return num_t(a) += b; }
+
+        friend num_t operator - (const num_t &a, const num_t &b) {return num_t(a) -= b; }
+        template<typename U> friend num_t operator - (const num_t &a, U b) {return num_t(a) -= b; }
+        template<typename U> friend num_t operator - (U a, const num_t &b) {return num_t(a) -= b; }
+
+        friend num_t operator * (const num_t &a, const num_t &b) {return num_t(a) *= b; }
+        template<typename U> friend num_t operator * (const num_t &a, U b) {return num_t(a) *= b; }
+        template<typename U> friend num_t operator * (U a, const num_t &b) {return num_t(a) *= b; }
+
+        friend num_t operator / (const num_t &a, const num_t &b) {return num_t(a) /= b; }
+        template<typename U> friend num_t operator / (const num_t &a, U b) {return num_t(a) /= b; }
+        template<typename U> friend num_t operator / (U a, const num_t &b) {return num_t(a) /= b; }
+
+    };
+
+    ///usage
+    using type = num_t<MOD>;
+}
+{
+    ///combinatorial, nCk, math
+    template <class T>
+    struct math {
+        vector<T> fact, inv_fact;
+        int n;
+
+        math(int _n = 1) {
+            n = _n;
+            fact = vector<T>(n + 1, 1);
+            inv_fact = vector<T>(n + 1, 1);
+            for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;
+
+            inv_fact.back() = inverse(fact.back());
+            for (int i = n; i >= 1; i--) inv_fact[i - 1] = inv_fact[i] * i;
+        }
+
+        T nCk(int n, int k) {
+            if (k < 0) return T(0);
+            T TS = fact[n];
+            T MS = inv_fact[k] * inv_fact[n - k];
+
+            return TS * MS;
+        }
+    };
+
+    ///usage
+    math<type> combi(3 * n + 10);
+}
+{
+    ///RMQ, Range Min/Max Query
+    template <typename T, class func = function<T(const T&, const T&)> >
+    struct rmq {
+        int n;
+        vector<vector<T> > b;
+        func F;
+
+        rmq(const vector<T> &a, const func &_F) : F(_F) {
+            n = (int)a.size();
+            int log_size = 0;
+            while ((1 << log_size) <= n) log_size++;
+            b.resize(log_size);
+            b[0] = a;
+            for (int j = 1; j < log_size; j++) {
+                b[j].resize(n - (1 << j) + 1);
+                for (int i = 0; i + (1 << j) <= n; i++) {
+                    b[j][i] = F(b[j - 1][i], b[j - 1][i + (1 << (j - 1))]);
+                }
+            }
+        }
+
+        T calc(int L, int R) const {
+            assert(0 <= L && L <= R && R < n);
+            int k = __lg(R - L + 1);
+            assert((1 << k) <= (R - L + 1) && (1 << (k + 1)) > (R - L + 1));
+            return F(b[k][L], b[k][R - (1 << k) + 1]);
+        }
+    };
+
+    ///usage:
+    vector<long long> d(n - 1);
+    rmq<long long> st(d, [&](long long a, long long b) {
+        return __gcd(a, b);
+    });
+
+}
+{
+    ///HLD, Heavy Light Decomposition
+    vector<int> adj[maxN];
+    int numNode[maxN];
+
+    void DFS(int u, int pa) {
+        numNode[u] = 1;
+        for (int v : adj[u]) {
+            if (v != pa) {
+                DFS(v, u);
+                numNode[u] += numNode[v];
+            }
+        }
+    }
+    int chainHead[maxN], chainInd[maxN], L[maxN], R[maxN];
+    int nChain = 1, Base = 0;
+    void HLD(int u, int pa) {
+        if (chainHead[nChain] == 0) { ///chainHead[x] : đỉnh đầu tiên của đoạn thứ x
+            chainHead[nChain] = u;
+        }
+        chainInd[u] = nChain; ///đoạn mà chứa đỉnh u
+        L[u] = ++Base; ////Thứ tự của đỉnh u khi trải mảng
+        int dinh = 0;
+        for (int v : adj[u]) {
+            if (v == pa) continue;
+            if (dinh == 0 || numNode[v] > numNode[dinh]) dinh = v; ////lấy đỉnh v có số nút con là max
+        }
+        if (dinh > 0) HLD(dinh, u);
+        for (int v : adj[u]) {
+            if (v == pa) continue;
+            if (v != dinh) {
+                nChain++;
+                HLD(v, u);
+            }
+        }
+        R[u] = Base;
+    }
+
+    /// Build Segment Tree ....
+
+    int parent[maxN];
+    void update(int u, int a) { /// Tách đường đi từ u đến a: đỉnh u thuộc cây con gốc a
+        // uchain chuỗi hiện tại của u
+        // achain chuỗi của a
+         int uchain = chainInd[u], achain = chainInd[a];
+         while (1) {
+            // Nếu u và a cùng nằm trên một chuỗi thì update đoạn từ u đến a và kết thúc.
+              if (uchain == achain) {
+                   updateIntervalTree(..., L[a], L[u], ...);
+                   break;
+              }
+            // Nếu u và a không nằm trên cùng một chuỗi thì update đoạn từ u đến đỉnh đầu của chuỗi hiện tại.
+              updateIntervalTree(..., L[chainHead[uchain]], L[u], ...);
+            // Nhảy lên đỉnh cha của đỉnh đầu hiện tại.
+              u = parent[chainHead[uchain]];
+              uchain = chainInd[u];
+         }
+    }
+}
+{
+    //IT, Segment Tree, Lazy
+    int IT[maxN], lazy[maxN];
+
+    void build(int i, int L, int R) {
+        lazy[i] = -1;
+        IT[i] = 0;
+        if (L == R) return;
+        int mid = (L + R) >> 1;
+        build(i << 1, L, mid);
+        build(i << 1 | 1, mid + 1, R);
+    }
+
+    void push(int i, int L, int R) {
+        if (lazy[i] == -1) return;
+        IT[i] = lazy[i] * (R - L + 1);
+        if (L != R) {
+            lazy[i << 1] = lazy[i];
+            lazy[i << 1 | 1] = lazy[i];
+        }
+        lazy[i] = -1;
+    }
+
+    ///update: a(i) = val for all i: u <= i <= v
+    void update(int i, int L, int R, int u, int v, int val) {
+        push(i, L, R);
+        if (L > v || R < u) return;
+        if (L >= u && R <= v) {
+            lazy[i] = val;
+            push(i, L, R);
+            return;
+        }
+        int mid = (L + R) >> 1;
+        update(i << 1, L, mid, u, v, val);
+        update(i << 1 | 1, mid + 1, R, u, v, val);
+        IT[i] = IT[i << 1] + IT[i << 1 | 1];
+    }
+
+    int get(int i, int L, int R, int u, int v) {
+        push(i, L, R);
+        if (L > v || R < u) return 0;
+        if (L >= u && R <= v) return IT[i];
+        int mid = (L + R) >> 1;
+        int left = get(i << 1, L, mid, u, v);
+        int right = get(i << 1 | 1, mid + 1, R, u, v);
+        return left + right;
+    }
+}
+{
+    //multiply matrix and power(a ^ n)
+    template<typename T>
+    vector<vector<T>> operator * (const vector<vector<T> > &a, const vector<vector<T> > &b) {
+        if ((int)a.size() == 0 || (int)b.size() == 0) {
+            return {{}};
+        }
+        int m = (int)a.size();
+        int n = (int)a[0].size();
+        assert(n == (int)b.size());
+        int p = (int)b[0].size();
+        vector<vector<T> > c(m, vector<T>(p));
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < p; j++) {
+                c[i][j] = 0;
+                for (int k = 0; k < n; k++) {
+                    //update: c[i][j]
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
+    }
+
+    template<typename T>
+    vector<vector<T>>& operator *=(vector<vector<T>> &a, vector<vector<T>> &b) {
+        return a = a * b;
+    }
+
+    template <typename T, typename U>
+    vector<vector<T>> power(vector<vector<T> > &a, U n) {
+        assert(n >= 0);
+        int sz = (int)a.size();
+        assert(sz == (int)a[0].size());
+        vector<vector<T> > ans(sz, vector<T>(sz, 0));
+        for (int i = 0; i < sz; i++) {
+            ans[i][i] = 1;
+        }
+
+        for (; n; n >>= 1, a *= a) {
+            if (n & 1) {
+                ans *= a;
+            }
+        }
+        return ans;
+    }
+
+}
+{
     ///IT Line: Max y = ax + b;
     struct Line {
         ///y = a * x + b;
@@ -85,6 +455,7 @@ void Diophante(long long a, long long b, long long &d, long long&x)
 }
 {
     ///Pisano periods (or Pisano numbers): period of Fibonacci numbers mod n.
+    ///n <= 10^12
     ///https://oeis.org/A001175
     struct matrix {
         long long c[2][2];
@@ -446,47 +817,48 @@ void Diophante(long long a, long long b, long long &d, long long&x)
         for (int i=1;i<=N;i++) printf("%d %d\n", A[i].x, A[i].y);
     }
 }
+{
+    int D[maxN];
+    int b[maxN][20];
+    long long F[maxN];
+    typedef pair<int, int> i2;
+    vector<i2> adj[maxN];
+    void DFS(int u, int pa) {
+        for (int i = 0; i <= 18; i++) {
+            int v = b[u][i];
+            if (v == 0) break;
+            b[u][i + 1] = b[v][i];
+        }
+        for (auto [v, w] : adj[u]) {
+            if (v != pa) {
+                D[v] = D[u] + 1;
+                F[v] = F[u] + w;
+                b[v][0] = u;
+                DFS(v, u);
+            }
+        }
+    }
 
-int D[maxN];
-int b[maxN][20];
-long long F[maxN];
-typedef pair<int, int> i2;
-vector<i2> adj[maxN];
-void DFS(int u, int pa) {
-    for (int i = 0; i <= 18; i++) {
-        int v = b[u][i];
-        if (v == 0) break;
-        b[u][i + 1] = b[v][i];
-    }
-    for (auto [v, w] : adj[u]) {
-        if (v != pa) {
-            D[v] = D[u] + 1;
-            F[v] = F[u] + w;
-            b[v][0] = u;
-            DFS(v, u);
+    int LCA(int u, int v) {
+        if (D[u] < D[v]) swap(u, v);
+        int k = D[u] - D[v];
+        for (int i = 18; i >= 0; i--) {
+            if (k >= (1 << i)) {
+                k -= (1 << i);
+                u = b[u][i];
+            }
         }
-    }
-}
-
-int LCA(int u, int v) {
-    if (D[u] < D[v]) swap(u, v);
-    int k = D[u] - D[v];
-    for (int i = 18; i >= 0; i--) {
-        if (k >= (1 << i)) {
-            k -= (1 << i);
-            u = b[u][i];
+        if (u == v) return u;
+        int res = 0;
+        for (int i = 18; i >= 0; i--) {
+            if (b[u][i] != b[v][i]) {
+                u = b[u][i];
+                v = b[v][i];
+            }
+            else res = b[u][i];
         }
+        return res;
     }
-    if (u == v) return u;
-    int res = 0;
-    for (int i = 18; i >= 0; i--) {
-        if (b[u][i] != b[v][i]) {
-            u = b[u][i];
-            v = b[v][i];
-        }
-        else res = b[u][i];
-    }
-    return res;
 }
 struct Manacher {
     string s;
@@ -880,100 +1252,6 @@ struct LucasTheorem { ///calculate nCk mod module with n, k is large number ~ 10
     }
 };
 
-{
-    ///SegmentTree Lazy
-    struct Node {
-        int sum, resmin, resmax;
-        int id;
-        Node(){};
-        Node(int _sum, int _resmin, int _resmax, int _id) {
-            sum = _sum;
-            resmin = _resmin;
-            resmax = _resmax;
-            id = _id;
-        }
-        bool operator < (const Node &A) const {
-            if (resmin != A.resmin) return resmin < A.resmin;
-            return id < A.id;
-        }
-
-        bool operator > (const Node &A) const {
-            if (resmax != A.resmax) return resmax < A.resmax;
-            return id > A.id;
-        }
-    };
-    Node Merge(Node Left, Node Right) {
-        Node res;
-        res.sum = Left.sum + Right.sum;
-        res.resmin = min(Left.resmin, Right.resmin);
-        res.resmax = max(Left.resmax, Right.resmax);
-        res.id = -1; ///add method if need track index
-        return res;
-
-    }
-    struct SegmentTree{
-        ///const long long oo = 1e18;
-        const int INF = 2e9 + 10;
-        vector<Node> IT;
-        vector<int> lazy;
-        int n;
-        SegmentTree(int _n = 0) {
-            n = _n;
-            IT.resize(n * 4);
-            lazy.resize(n * 4);
-        }
-        void build(int i, int L, int R) {
-            IT[i] = Node(0, 0, 0, L);
-            lazy[i] = 0;
-            if (L == R) return;
-            int mid = (L + R) >> 1;
-            build(i << 1, L, mid);
-            build(i << 1 | 1, mid + 1, R);
-        }
-        void cn(int i, int L, int R) {
-            if (lazy[i] == 0) return;
-            IT[i].resmin += lazy[i];
-            IT[i].resmax += lazy[i];
-            IT[i].sum += lazy[i] * (R - L + 1);
-            if (L != R) {
-                lazy[i << 1] += lazy[i];
-                lazy[i << 1 | 1] += lazy[i];
-            }
-            lazy[i] = 0;
-        }
-        void add(int i, int L, int R, int u, int v, int val) {
-            cn(i, L, R);
-            if (L > v || R < u) return;
-            if (L >= u && R <= v) {
-                lazy[i] += val;
-                cn(i, L, R);
-                return;
-            }
-            int mid = (L + R) >> 1;
-            add(i << 1, L, mid, u, v, val);
-            add(i << 1 | 1, mid + 1, R, u, v, val);
-            IT[i] = Merge(IT[i << 1], IT[i << 1 | 1]);
-        }
-        Node Get(int i, int L, int R, int u, int v) {
-            cn(i, L, R);
-            if (L > v || R < u) return Node(0, INF, -INF, -1);
-            if (L >= u && R <= v) return IT[i];
-            int mid = (L + R) >> 1;
-            Node Left = Get(i << 1, L, mid, u, v);
-            Node Right = Get(i << 1 | 1, mid + 1, R, u, v);
-            return Merge(Left, Right);
-        }
-
-        void update(int L, int R, int val) {
-            add(1, 0, n, L, R, val);
-        }
-
-        Node getNode(int L, int R) {
-            return Get(1, 0, n, L, R);
-        }
-    };
-
-}
 template<typename T>
 struct FenwickTree{
     vector<T> fenwick;
@@ -999,69 +1277,40 @@ struct FenwickTree{
     }
 };
 struct SuffixArray {
-  const int L;
-  string s;
-  vector<vector<int> > P;
-  vector<pair<pair<int,int>,int> > M;
-  ///P[k][i] = P[k][j] neu xau bat dau tu i co do dai 2^k = xau bat dau tu j co do dai 2^k
-  SuffixArray(const string &s) : L(s.length()), s(s), P(1, vector<int>(L, 0)), M(L) {
-    for (int i = 0; i < L; i++) P[0][i] = int(s[i]);
-    for (int skip = 1, level = 1; skip < L; skip *= 2, level++) {
-      P.push_back(vector<int>(L, 0));
-      for (int i = 0; i < L; i++)
-	M[i] = make_pair(make_pair(P[level-1][i], i + skip < L ? P[level-1][i + skip] : -1000), i);
-      sort(M.begin(), M.end());
-      for (int i = 0; i < L; i++)
-	P[level][M[i].second] = (i > 0 && M[i].first == M[i-1].first) ? P[level][M[i-1].second] : i;
-    }
-  }
-  vector<int> GetSuffixArray() { return P.back(); }
-  // returns the length of the longest common prefix of s[i...L-1] and s[j...L-1]
-  int LongestCommonPrefix(int i, int j) {
-    int len = 0;
-    if (i == j) return L - i;
-    for (int k = P.size() - 1; k >= 0 && i < L && j < L; k--) {
-      if (P[k][i] == P[k][j]) {
-	i += 1 << k;
-	j += 1 << k;
-	len += 1 << k;
-      }
-    }
-    return len;
-  }};
+    const int L;
+    string s;
+    vector<vector<int> > P;
+    vector<pair<pair<int,int>,int> > M;
+    ///P[k][i] = P[k][j] neu xau bat dau tu i co do dai 2^k = xau bat dau tu j co do dai 2^k
+    SuffixArray(const string &s) : L(s.length()), s(s), P(1, vector<int>(L, 0)), M(L) {
+        for (int i = 0; i < L; i++) P[0][i] = int(s[i]);
+        if (L == 1) P[0][0] = 0; ///very important :)))), otherwise it may cause an error when L = 1
 
-
-struct num_t {
-    const long long oo = 1e18;
-    ///real num = a * 10^18 + b
-    int a;
-    long long b;
-    num_t(long long val = 0) {
-        a = 0;
-        b = val;
-    }
-
-    void operator += (const long long &A) {
-        b += A;
-        if (b >= oo) {
-            a += 1;
-            b -= oo;
+        for (int skip = 1, level = 1; skip < L; skip *= 2, level++) {
+            P.push_back(vector<int>(L, 0));
+            for (int i = 0; i < L; i++)
+                M[i] = make_pair(make_pair(P[level-1][i], i + skip < L ? P[level-1][i + skip] : -1000), i);
+            sort(M.begin(), M.end());
+            for (int i = 0; i < L; i++)
+                P[level][M[i].second] = (i > 0 && M[i].first == M[i-1].first) ? P[level][M[i-1].second] : i;
         }
     }
-    void operator += (const num_t &A) {
-        a += A.a;
-        b += A.b;
-        if (b >= oo){
-            a += 1;
-            b -= oo;
+    vector<int> GetSuffixArray() { return P.back(); }
+    // returns the length of the longest common prefix of s[i...L-1] and s[j...L-1]
+    int LongestCommonPrefix(int i, int j) {
+        int len = 0;
+        if (i == j) return L - i;
+        for (int k = P.size() - 1; k >= 0 && i < L && j < L; k--) {
+            if (P[k][i] == P[k][j]) {
+                i += 1 << k;
+                j += 1 << k;
+                len += 1 << k;
+            }
         }
-    }
+        return len;
+    }};
 
-    bool operator > (const num_t &A) const {
-        if (a != A.a) return a > A.a;
-        return b > A.b;
-    }
-};
+
 struct MaxBipartiteMatching { ///base 1th; X -> Y
     int n, m;
     vector <int> link, match, stk, Used;
@@ -1499,6 +1748,10 @@ struct Point {
     bool operator != (const Point &A) {
         return !(*this == A);
     }
+    friend ifstream& operator >> (istream &in, Point &A) {
+        in >> A.x >> A.y;
+        return in;
+    };
     friend ostream& operator << (ostream &os, const Point &A) {
         os << A.x << " " << A.y << '\n';
         return os;
@@ -1606,32 +1859,260 @@ void xuat(int x) {
     }
 }
 
-///Double Hash
-#define rsz resize
-const long long Mod = 2100003221LL;
-const int Base = 31;
-i64 modPow(i64 a, i64 b) {
-	if (b == 0) return 1;
-	i64 tmp = modPow(a, b/2);
-	if (b % 2 == 0) return ((tmp * tmp) % Mod);
-	return ((((tmp * tmp) % Mod) * a) % Mod);
-}
+{
+    ///https://github.com/Nikitosh/SPbAU-Generation-Z-Team-Reference/blob/master/strings/Hashes.cpp
+    ///Double Hash
+    const int P = 239017, MOD_X = 1e9 + 7, MOD_Y = 1e9 + 9;
 
-void GenerateHash() {
-	Hash.rsz(m, 0); HashInv.rsz(m, 0); HashPow.rsz(m, 0); Hash[0] = (t[0] - 'a');
-	HashInv[0] = modPow(Base, Mod-2); HashPow[0] = Base;
-	for (i64 i=1; i<m; i++) HashPow[i] = (HashPow[i-1] * Base) % Mod;
-	for (i64 i=1; i<m; i++) Hash[i] = (Hash[i-1] + (HashPow[i-1] * (t[i] - 'a')) % Mod) % Mod;
-	for (i64 i=1; i<m; i++) HashInv[i] = (HashInv[i-1] * HashInv[0]) % Mod;
-}
-i64 GetHash(i64 l, i64 r) {
-	i64 val = Hash[r];
-	if (l > 0) {
-		val -= Hash[l-1]; val %= Mod;
-		while (val < 0) val += Mod;
-		val *= HashInv[l-1]; val %= Mod;
-	}
-	return val;
-}
+    inline int add(int a, int b, int m) {
+        a += b;
+        return a >= m ? a - m : a;
+    }
 
+    inline int sub(int a, int b, int m) {
+        a -= b;
+        return a < 0 ? a + m : a;
+    }
+
+    inline int mul(int a, int b, int m) {
+        return (a * 1ll * b) % m;
+    }
+
+    // using H = unsigned long long;
+    struct H {
+        int x, y;
+        H(int _x = 0, int y = 0) {
+            x = _x;
+            y = _y;
+        }
+        inline H operator + (const H& other) const {
+            return H(add(x, other.x, MOD_X), add(y, other.y, MOD_Y));
+        }
+
+        inline H operator - (const H& other) const {
+            return H(sub(x, other.x, MOD_X), sub(y, other.y, MOD_Y));
+        }
+
+        inline operator * (const H& other) const {
+            return H(mul(x, other.x, MOD_X), mul(y, other.y, MOD_Y));
+        }
+
+        void operator += (const H& other) {
+            *this = *this + other;
+        }
+
+        void operator -= (const H& other) {
+            *this = *this - other;
+        }
+
+        void operator *= (const H& other) {
+            *this = *this * other;
+        }
+        inline bool operator == (const H& other) const {
+            return x == other.x && y == other.y;
+        }
+    };
+
+    H p[N], h[N];
+
+    inline H get(int l, int r) { return h[r] - h[l] * p[r - l]; }
+
+    void init(const string& s) {
+        int n = sz(s);
+        deg[0] = 1;
+        forn (i, n)
+            h[i + 1] = h[i] * P + s[i], p[i + 1] = p[i] * P;
+    }
+}
+{
+    ///shunting yard algorithm
+    ///compact Expression
+    ///s = "3*(x^2+x)+15" -> compactExpression(s)="3*x^2+3*x+15"
+    ///s = "(9*x^3+5*x)*6*x+4" -> compactExpression(s)="54*x^4+30*x^2+4".
+
+    struct node {
+        int heso, mu;
+        node(int _heso = 0, int _mu = 0) {
+            heso = _heso;
+            mu = _mu;
+        }
+        bool operator < (const node &a) {
+            return mu < a.mu;
+        }
+        string evaluate() {
+            string ans;
+            if (mu == 0) return std::to_string(heso);
+            if (heso < 0) ans += '-';
+            if (abs(heso) > 1) {
+                ans += std::to_string(abs(heso)) + "*";
+            }
+            ans += "x";
+            if (mu > 1) ans += "^" + std::to_string(mu);
+            return ans;
+        }
+    };
+    vector<node> add(const vector<node> &a, const vector<node> &b) {
+        int n = (int)a.size();
+        int m = (int)b.size();
+        vector<int> used(m, 0);
+        vector<node> ans;
+        for (int i = 0; i < n; i++) {
+            node x = a[i];
+            for (int i = 0; i < m; i++) {
+                if (x.mu == b[i].mu) {
+                    x.heso += b[i].heso;
+                    used[i] = 1;
+                    break;
+                }
+            }
+            if (x.heso != 0) ans.push_back(x);
+        }
+        for (int i = 0; i < m; i++) {
+            if (used[i] == 0) ans.push_back(b[i]);
+        }
+        if ((int)ans.size() == 0) return {node(0, 0)};
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+    node mul(node a, node b) {
+        node ans;
+        ans.heso = a.heso * b.heso;
+        ans.mu = a.mu + b.mu;
+        return ans;
+    }
+    vector<node> mul(const vector<node> &a, const vector<node> &b) {
+        vector<node> ans;
+        for (node x : a) {
+            vector<node> v;
+            for (node y : b) {
+                y = mul(x, y);
+                if (y.heso != 0) v.push_back(y);
+            }
+            ans = add(ans, v);
+        }
+        if ((int)ans.size() == 0) return {node(0, 0)};
+        return ans;
+    }
+    vector<node> sub(const vector<node> &a, vector<node> b) {
+        for (node &x : b) x.heso *= -1;
+        return add(a, b);
+    }
+    vector<node> power(const vector<node> &a, vector<node> x) {
+        vector<node> ans = {node(1, 0)};
+        while ((int)x.size() > 1) continue;
+        while (x[0].mu > 0) continue;
+        for (int i = 0; i < x[0].heso; i++) ans = mul(ans, a);
+        return ans;
+    }
+
+    int precedence(char c) {
+        if (c == '(') return 0;
+        if (c == '+' || c == '-') return 1;
+        if (c == '*') return 2;
+        if (c == '^') return 3;
+        while (true) {
+            continue;
+        }
+        return -1;
+    }
+
+    void infixToRpn(string s, vector<pair<node, char> > &exp) {
+        vector<char> cur_op;
+        int n = (int)s.size();
+        for (int i = 0; i < n; ) {
+            int j = i;
+            if (s[i] >= '0' && s[i] <= '9') {
+                int heso = 0;
+                while (j < n && s[j] >= '0' && s[j] <= '9') {
+                    heso = (heso * 10) + (s[j] - '0');
+                    j++;
+                }
+                exp.push_back({node(heso, 0), '?'});
+                i = j;
+            }
+            else {
+                if (s[i] == 'x') {
+                    exp.push_back({node(1, 1), '?'});
+                    i++;
+                    continue;
+                }
+                else {
+                    if (s[i] == ')') {
+                        while ((int)cur_op.size() > 0 && cur_op.back() != '(') {
+                            exp.push_back({node(), cur_op.back()});
+                            cur_op.pop_back();
+                        }
+                        if ((int)cur_op.size() > 0) cur_op.pop_back();
+                    }
+                    else{
+                        if (s[i] == '(') cur_op.push_back('(');
+                        else {
+                            while ((int)cur_op.size() > 0) {
+                                int top_prece = precedence(cur_op.back());
+                                int cur_prece = precedence(s[i]);
+                                int canEqual = cur_op.back() != '^';
+                                if (top_prece + canEqual > cur_prece) {
+                                    exp.push_back({node(), cur_op.back()});
+                                    cur_op.pop_back();
+                                }
+                                else break;
+                            }
+                            cur_op.push_back(s[i]);
+                        }
+                    }
+                }
+                i++;
+            }
+        }
+        while ((int)cur_op.size() > 0) {
+            exp.push_back({node(), cur_op.back()});
+            cur_op.pop_back();
+        }
+    }
+    string compactExpression(string s)
+    {
+        if ((int)s.size() == 0) return "";
+        vector<pair<node, char> > exp;
+        infixToRpn(s, exp);
+
+        stack<vector<node> > stk;
+        for (auto [x, op] : exp) {
+            if (op == '?') stk.push({x});
+            else {
+                vector<node> last = stk.top(); stk.pop();
+                vector<node> prev;
+                if ((int)stk.size() == 0) prev = {node(0, 0)};
+                else {
+                    prev = stk.top();
+                    stk.pop();
+                }
+                vector<node> result;
+                if (op == '+') result = add(prev, last);
+                if (op == '-') result = sub(prev, last);
+                if (op == '*') result = mul(prev, last);
+                if (op == '^') result = power(prev, last);
+
+                stk.push(result);
+            }
+        }
+
+        if ((int)stk.size() == 0) {
+            while (true) continue;
+        }
+        vector<node> value = stk.top();
+        string ans;
+        int sz = (int)value.size();
+        for (int i = sz - 1; i >= 0; i--) {
+            string t = value[i].evaluate();
+            if (t[0] == '-') {
+                ans += t;
+            }
+            else {
+                if (i != sz - 1) ans += "+";
+                ans += t;
+            }
+        }
+        return ans;
+    }
+}
 
