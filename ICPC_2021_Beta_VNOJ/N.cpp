@@ -24,17 +24,18 @@ const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
 namespace Pollard {
-    long long mulmod(long long a, long long b, long long p) {
+    template<typename num_t>
+    num_t mulmod(num_t a, num_t b, num_t p) {
         a %= p; b %= p;
-        long long q = (long long) ((long double) a * b / p);
-        long long r = a * b - q * p;
+        num_t q = (num_t) ((long double) a * b / p);
+        num_t r = a * b - q * p;
         while (r < 0) r += p;
         while (r >= p) r -= p;
         return r;
         /*
-        long long r = 0;
+        num_t r = 0;
         int block = 1;
-        long long base = 1LL << block;
+        num_t base = 1LL << block;
         for (; b; b >>= block) {
             r = (r + a * (b & (base - 1))) % p;
             a = a * base % p;
@@ -42,19 +43,21 @@ namespace Pollard {
         return r;
         */
     }
-    long long powmod(long long n, long long k, long long p) {
-        long long r = 1;
+    template<typename num_t>
+    num_t powmod(num_t n, num_t k, num_t p) {
+        num_t r = 1;
         for (; k; k >>= 1) {
             if (k & 1) r = mulmod(r, n, p);
             n = mulmod(n, n, p);
         }
         return r;
     }
-    int rabin(long long n) {
+    template<typename num_t>
+    int rabin(num_t n) {
         if (n == 2) return 1;
         if (n < 2 || !(n & 1)) return 0;
-        const long long p[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
-        long long a, d = n - 1, mx = 4;
+        const num_t p[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
+        num_t a, d = n - 1, mx = 4;
         int i, r, s = 0;
         while (!(d & 1)) {++s; d >>= 1;}
         for (i = 0; i < mx; i++) {
@@ -68,10 +71,12 @@ namespace Pollard {
         }
         return 1;
     }
-    inline long long f(long long a, long long b, long long n) {
+    template<typename num_t>
+    inline num_t f(num_t a, num_t b, num_t n) {
         return (mulmod(a, a, n) + b) % n;
     }
-    void factorize(long long n, vector<long long>& facs) {
+    template<typename num_t>
+    void factorize(num_t n, vector<num_t>& facs) {
         static int init_seed = 0;
         if (!init_seed) {
             init_seed = 1;
@@ -90,11 +95,11 @@ namespace Pollard {
             return;
         }
         while (1) {
-            long long a = rand() & 63, x = 2, y = 2;
+            num_t a = rand() & 63, x = 2, y = 2;
             while (1) {
                 x = f(x, a, n), y = f(f(y, a, n), a, n);
                 if (x == y) break;
-                long long p = __gcd(n, y <= x ? x - y : y - x);
+                num_t p = __gcd(n, y <= x ? x - y : y - x);
                 if (p > 1) {
                     factorize(p, facs), factorize(n / p, facs);
                     return;
@@ -136,19 +141,33 @@ void sol() {
     int xL = 1;
     {
         int L = 1, R = lim;
-        while (L <= R) {
-            int mid = (L + R) >> 1;
+        while (L < R) {
+            int mid = (L + R + 1) >> 1;
             long long s = ask(mid, 1, lim, lim);
             if (s == area) {
-                xL = mid;
-                L = mid + 1;
+                L = mid;
             }
             else {
                 R = mid - 1;
             }
         }
+        xL = L;
     }
-
+    int yL = 1;
+    {
+        int L = 1, R = lim;
+        while (L < R) {
+            int mid = (L + R + 1) >> 1;
+            long long s = ask(xL, mid, lim, lim);
+            if (s == area) {
+                L = mid;
+            }
+            else {
+                R = mid - 1;
+            }
+        }
+        yL = L;
+    }
     vector<long long> facs;
     Pollard::factorize(area, facs);
     map<long long, int> prime;
@@ -161,39 +180,17 @@ void sol() {
     for (auto x : divs) {
         auto y = area / x;
         auto xR = xL + x - 1;
-        if (xR <= lim && y <= lim) {
+        auto yR = yL + y - 1;
+        if (xR <= lim && yR <= lim) {
             canChoose.push_back(x);
         }
     }
-    int L = 0, R = (int)canChoose.size() - 1;
-    int xR = lim;
-    while (L <= R) {
-        int mid = (L + R) >> 1;
-        int xR_candidate = xL + canChoose[mid] - 1;
-        long long s = ask(xL, 1, xR_candidate, lim);
-        if (s == area) {
-            xR = xR_candidate;
-            R = mid - 1;
-        }
-        else L = mid + 1;
-    }
-    int x = xR - xL + 1;
-    int y = area / x;
-    int yL = 1;
-    {
-        int L = 1, R = lim - y + 1;
-        while (L <= R) {
-            int mid = (L + R) >> 1;
-            long long s = ask(xL, mid, lim, lim);
-            if (s == area) {
-                yL = mid;
-                L = mid + 1;
-            }
-            else {
-                R = mid - 1;
-            }
-        }
-    }
+    int mx = canChoose.back();
+    long long s = ask(xL, yL, xL + mx - 1, yL + area / mx - 1);
+    int y_common = area / mx;
+    int x = s / y_common;
+    int y = area / x; 
+    int xR = xL + x - 1;
     int yR = yL + y - 1;
     cout << "! " << xL << " " << yL << " " << xR << " " << yR << endl;
 }
