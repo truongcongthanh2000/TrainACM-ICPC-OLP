@@ -15,10 +15,10 @@ const int dy[4] = {0, 1, 0, -1};
 mt19937 rnd(chrono::system_clock::now().time_since_epoch().count());
 
 void open_file() {
-    // #ifdef THEMIS
+    #ifdef THEMIS
         freopen(INP ".txt","r",stdin);
         freopen(OUT ".out","w",stdout);
-    // #endif // THEMIS
+    #endif // THEMIS
 }
 
 const int maxN = 1e6 + 100;
@@ -34,13 +34,12 @@ void sol() {
         cin >> a[i];
     sort(a.begin(), a.end());
     a.resize(unique(a.begin(), a.end()) - a.begin());
-    for (int i = 0; i < n; i++)
-        cout << a[i] << endl;
+    n = a.size();
     f[0] = 1;
-    for (int i = 0; i <= X; i++){
-        for (int j = 0; j < n; j++){
-            if (i - a[j] < 0) continue;
-            f[i] = f[i] + f[i - a[j]];
+    for (int i = n - 1 ; i >= 0; i--){
+        for (int j = 0; j <= X; j++){
+            if (j - a[i] < 0) continue;
+            f[j] = f[j] + f[j - a[i]]; 
         }
     }
     cout << f[X];
