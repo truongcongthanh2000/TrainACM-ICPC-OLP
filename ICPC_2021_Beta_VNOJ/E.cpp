@@ -24,7 +24,7 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-int f[maxN];
+long long f[maxN];
 
 void sol() {
     int X, n;
