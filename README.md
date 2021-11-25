@@ -21,7 +21,7 @@
 
 [Link contest](https://oj.vnoi.info/contest/icpc21_beta)
 
-[Code](https://git.pandolar.top/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC_2021_Beta_VNOJ)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC_2021_Beta_VNOJ)
 
 ## ACM-ICPC in season 2020-2021
 
