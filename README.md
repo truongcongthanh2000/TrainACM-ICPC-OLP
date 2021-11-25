@@ -25,7 +25,7 @@
 
 ## ACM-ICPC in season 2020-2021
 
-[Link to Trainning Contest ACM-ICPC season 2020-2021 (file Train2020-2021.md)](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/blob/master/Train2018-2020.md)
+[Link to Trainning Contest ACM-ICPC season 2020-2021 (file Train2020-2021.md)](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/blob/master/Train2020-2021.md)
 
 ## ACM-ICPC in seasons 2018-2019 and 2019-2020
 
