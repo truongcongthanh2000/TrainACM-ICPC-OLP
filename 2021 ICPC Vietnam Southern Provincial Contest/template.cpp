@@ -23,21 +23,8 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-void sol() {
-
-}
-
 void solve() {
-    int T = 1;
-    cin >> T;
-    int TestCase = 0;
-    while (T--) {
-        TestCase += 1;
-        cerr << "Processing test = " << TestCase << '\n';
-        //cout << "Case #" << TestCase << ": ";
-        sol();
-        //if (T) cout << '\n';
-    }
+    
 }
 
 int main(int argc,char *argv[]) {
