@@ -29,7 +29,7 @@ void sol() {
 
 void solve() {
     int T = 1;
-    //cin >> T;
+    cin >> T;
     int TestCase = 0;
     while (T--) {
         TestCase += 1;
