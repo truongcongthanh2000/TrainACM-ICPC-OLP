@@ -17,6 +17,13 @@
 
 ## ACM-ICPC in season 2021-2022
 
+
+## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - ./. Problems)
+
+[Link contest](https://icpc.hcmus.edu.vn/public)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Southern%20Provincial%20Contest)
+
 ## VNOJ: ICPC Practice Contest 2021 (Date: 21/11/2021 - 9/14 Problems)
 
 [Link contest](https://oj.vnoi.info/contest/icpc21_beta)
