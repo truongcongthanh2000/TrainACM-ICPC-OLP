@@ -1,5 +1,5 @@
 #!/bin/bash
-g++ -std=c++14 $1.cpp
+g++ -std=c++17 $1.cpp
 if [ "$2" = "1" ];
 then
     ./a < input.txt > output.txt
