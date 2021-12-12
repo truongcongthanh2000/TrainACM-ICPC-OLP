@@ -1,4 +1,4 @@
-# 2021 ICPC Vietnam Southern Provincial Contest
+# 2021 ICPC Vietnam Central Provincial Contest
 
 ## Usage
 
