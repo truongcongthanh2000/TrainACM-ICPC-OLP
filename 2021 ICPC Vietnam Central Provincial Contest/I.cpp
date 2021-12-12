@@ -23,6 +23,44 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
+typedef pair<double, double> ii;
+
+struct rect{
+    int x, y, w, h;
+    rect(int _x, int _y, int _w, int _h){
+        x = _x;
+        y = _y;
+        w = _w;
+        h = _h;
+    }
+    ii upper_left(){
+        double X = x - (double)w / 2;
+        double Y = y - (double)h / 2;
+        return ii(X, Y); 
+    }
+    ii lower_right(){
+        double X = x + (double)w / 2;
+        double Y = y + (double)h / 2;
+        return ii(X, Y); 
+    }
+};
+
+bool giao(rect A, rect B){
+    ii A_left = A.upper_left();
+    ii A_right = A.lower_right();
+    ii B_left = B.upper_left();
+    ii B_right = B.lower_right();
+
+    double x_min = max(A_left.first, B_left.first);
+    double x_max = min(A_right.first, B_right.first);
+    double y_min = max(A_right.second, B_right.second);
+    double y_max = min(A_left.second, B_left.second); 
+    
+    if (x_max < x_min || y_max < y_min) return false;
+
+    return true;
+}
+
 void sol() {
     
 }
