@@ -48,10 +48,12 @@ void sol() {
         d2[c]++;
         return ans;
     };
+    int cur = 0;
     for (int idx = 0; idx < (int)t.size(); idx++) {
         bool has = false;
         for (int c = 0; c < 26; c++) {
-            if (d2[c] > 0 && ok(idx, c)) {
+            if (d2[c] > 0 && ok(cur, c)) {
+                cur = nxt[cur][c];
                 has = true;
                 cout << char(c + 'a');
                 d2[c]--;

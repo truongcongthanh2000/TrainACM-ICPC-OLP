@@ -23,7 +23,7 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 vector<int> a[maxN];
-int cha[maxN], node[maxN], p;
+int cha[maxN], node[maxN], p = 0;
 long long f[maxN];
 
 void DFS(int u){
@@ -39,12 +39,23 @@ void DFS(int u){
 void sol() {
     int n, m;
     cin >> n >> m;
-    for(int i = 0; i < m; i++){
-        int x, y;
-        cin >> x >> y;
-        a[x].push_back(y);
-        a[y].push_back(x);
+    vector<int> students;
+    vector<int> x(m), y(m);
+    for (int i = 0; i < m; i++) {
+        cin >> x[i] >> y[i];
+        students.push_back(x[i]);
+        students.push_back(y[i]);
     }
+    sort(students.begin(), students.end());
+    students.resize(unique(students.begin(), students.end()) - students.begin());
+    for (int i = 0; i < m; i++) {
+        x[i] = lower_bound(students.begin(), students.end(), x[i]) - students.begin() + 1;
+        y[i] = lower_bound(students.begin(), students.end(), y[i]) - students.begin() + 1;
+        a[x[i]].push_back(y[i]);
+        a[y[i]].push_back(x[i]);
+    }
+    n = (int)students.size();
+    p = 0;
     for(int i = 1; i <= n; i++){
         if (cha[i] == 0){
             cha[i] = -1;
