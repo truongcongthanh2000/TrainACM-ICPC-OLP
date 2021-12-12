@@ -1,69 +1,91 @@
-#define _USE_MATH_DEFINES
-#include <bits/stdc++.h>
-
+///Source: SCPC 2018: Histogram
+#include<bits/stdc++.h>
 using namespace std;
 
-#define INP "input"
-#define OUT "output"
+const int MAXN = 1000003;
+int n;
+double h[MAXN];
+double hsum[MAXN];
+double hsqsum[MAXN];
 
-const long long INF_LL = 1e18;
-const int INF = 1e9 + 100;
-const long double EPS = 1e-6;
-const int BLOCK = 550;
-const int dx[4] = {-1, 0, 1, 0};
-const int dy[4] = {0, 1, 0, -1};
-
-void open_file() {
-    #ifdef THEMIS
-        freopen(INP ".txt","r",stdin);
-        freopen(OUT ".txt","w",stdout);
-    #endif // THEMIS
+inline double hpartial(int st, int ed) {
+    return hsum[ed] - hsum[st - 1];
+}
+inline double hsqpartial(int st, int ed) {
+    return hsqsum[ed] - hsqsum[st - 1];
+}
+inline double minpt(int st, int ed) {
+    return hpartial(st, ed) / (double)(ed - st + 1);
+}
+inline double sqcalc(double a, double b, double c, double x) {
+    return a * x * x + b * x + c;
 }
 
-const int maxN = 1e6 + 100;
-const int MOD = 1e9 + 7;
+struct Point {
+    double x, y;
+    Point operator-(const Point& r) const {
+        return Point{ x - r.x, y - r.y };
+    }
+};
+inline double inner(const Point& a, const Point& b) {
+    return a.x * b.x + a.y * b.y;
+}
+inline double outer(const Point& a, const Point& b) {
+    return a.x * b.y - a.y * b.x;
+}
+inline double ccw(const Point& a, const Point& b, const Point& c) {
+    return outer(b - a, c - a) - 0;
+}
 
-void sol() {
-    int n;
+void proc(int caseidx) {
     cin >> n;
-    vector<double> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    vector<double> mn(n + 1, 1e9);
-    mn[n - 1] = a[n - 1];
-    for (int i = n - 2; i >= 0; i--) mn[i] = min(mn[i + 1], a[i]);
-    vector<double> b(n);
-    double last = -1e9;
-    for (int i = 0; i < n; i++) {
-        double x = (a[i] + mn[i]) / 2;
-        b[i] = max(last, x);
-        last = b[i];
+    for (int i = 1; i <= n; ++i) {
+        double p;
+        cin >> p;
+        h[i] = p;
+        hsum[i] = hsum[i - 1] + h[i];
+        hsqsum[i] = hsqsum[i - 1] + h[i] * h[i];
     }
-    double ans = 0;
-    for (int i = 0; i < n; i++) ans += (a[i] - b[i]) * (a[i] - b[i]);
-    cout << fixed << setprecision(10) << sqrt(ans) << endl;
+
+    vector<Point> pts, lower;
+    pts.push_back(Point{ 0, 0 });
+    for (int i = 1; i <= n; ++i) {
+        pts.push_back(Point{ (double)i, hsum[i] });
+    }
+
+    sort(pts.begin(), pts.end(), [](const Point& a, const Point& b) {
+        return abs(a.x - b.x) < (1e-6) ? a.y < b.y : a.x < b.x;
+    });
+    for (const auto& p : pts) {
+        while (lower.size() >= 2 && ccw(*++lower.rbegin(), *lower.rbegin(), p) <= 0) lower.pop_back();
+        lower.emplace_back(p);
+    }
+
+    double mmans = 0;
+    int prv = 0;
+    for (int i = 1; i < (int)lower.size(); ++i) {
+        int st = prv + 1;
+        int minid = lower[i].x;
+        double minv = minpt(st, minid);
+        mmans += sqcalc(
+            minid - st + 1,
+            (-2) * hpartial(st, minid),
+            hsqpartial(st, minid),
+            minv
+        );
+        prv = lower[i].x;
+    }
+
+    cout << fixed << setprecision(10) << sqrt(mmans) << '\n';
 }
 
-void solve() {
-    clock_t start, end;
-    start = clock();
-    int T = 1;
-    //cin >> T;
-    int TestCase = 0;
-    while (T--) {
-        TestCase += 1;
-        cerr << "Processing test = " << TestCase << '\n';
-        //cout << "Case #" << TestCase << ": ";
-        sol();
-        //if (T) cout << '\n';
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t = 1;
+    //cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        proc(i);
     }
-    end = clock();
-    cerr << "Time = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
-}
-
-int main(int argc,char *argv[]) {
-    //srand(time(nullptr));
-    ios_base::sync_with_stdio(0); cin.tie(nullptr); cout.tie(nullptr);
-    open_file();
-    solve();
     return 0;
 }

@@ -27,7 +27,8 @@ void sol() {
     string s;
     cin >> s;
     int n = (int)s.size();
-    vector<vector<int> > nxt(n + 2, vector<int>(26, n + 1)), d(n + 2, vector<int>(26, 0));
+    vector<vector<int> > nxt(n + 2, vector<int>(26, n + 1)), d(n + 2, vector<int>(26, -1));
+    for (int i = 0; i < 26; i++) d[n][i] = 0;
     for (int i = n - 1; i >= 0; i--) {
         for (int j = 0; j < 26; j++) {
             nxt[i][j] = nxt[i + 1][j];
@@ -49,13 +50,14 @@ void sol() {
         return ans;
     };
     int cur = 0;
+    string ans;
     for (int idx = 0; idx < (int)t.size(); idx++) {
         bool has = false;
         for (int c = 0; c < 26; c++) {
             if (d2[c] > 0 && ok(cur, c)) {
                 cur = nxt[cur][c];
                 has = true;
-                cout << char(c + 'a');
+                ans += char(c + 'a');
                 d2[c]--;
                 break;
             }
@@ -65,6 +67,7 @@ void sol() {
             return;
         }
     }
+    cout << ans;
 }
 
 void solve() {

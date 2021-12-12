@@ -33,9 +33,11 @@ void init() {
                     dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i - 1][j][k]);
                     dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j - 1][k]);
                     dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j][k - 1]);
-                    if (i >= u) dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i - u][j][k] + j * k);
-                    if (j >= u) dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j - u][k] + i * k);
-                    if (k >= u) dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j][k - u] + i * j);
+                    if (u <= i && u <= j && u <= k) {
+                        dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i - u][j][k] + j * k);
+                        dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j - u][k] + i * k);
+                        dp[u][i][j][k] = max(dp[u][i][j][k], dp[u][i][j][k - u] + i * j);
+                    }
                 }
             }
         }
