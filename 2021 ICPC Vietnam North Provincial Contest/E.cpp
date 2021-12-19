@@ -23,47 +23,8 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-int Used[500][500];
-long long dp[500][500];
-long long F(int n, int S) {
-    if (S < 0) return 0;
-    if (S > n * 9) return 0;
-    if (n == 0)
-        return S == 0;
-    if (Used[n][S]++) return dp[n][S];
-    long long &res = dp[n][S];
-    for (int i = 0; i < 10; i++) res += F(n - 1, S - i);
-    return res;
-}
-
-long long get(long long sz, int S) {
-    int n = 1;
-    while (true) {
-        long long s = 0;
-        for (int i = 1; i < 10; i++) {
-            s += F(n - 1, S - i);
-            if (s >= sz) break;
-        }
-        if (s >= sz) break;
-        sz -= s;
-        n += 1;
-    }
-    long long res = 0;
-    for (int sl = 1; sl <= n; sl++) {
-        for (int i = (sl == 1 ? 1 : 0); i < 10; i++) {
-            long long val = F(n - sl, S - i);
-            if (val >= sz) {
-                res = res * 10 + i;
-                S -= i;
-                break;
-            }
-            else sz -= val;
-        }
-    }
-    assert(S == 0);
-    return res;
-}
-
+long long dp[16][200][200][3][2][2];
+bool ok[200];
 bool prime(int x) {
     for (int i = 2; i * i <= x; i++) {
         if (x % i == 0) return false;
@@ -73,19 +34,55 @@ bool prime(int x) {
 void sol() {
     vector<int> primes;
     for (int i = 2; i <= 135; i++) {
-        if (prime(i)) primes.push_back(i);
+        ok[i] = prime(i);
+        if (ok[i]) primes.push_back(i);
     }
-    long long limits = 1e15;
-    for (int p : primes) {
-        cout << "Prime = " << p << ": ";
-        int idx = 1;
-        while (true) {
-            long long v = get(idx, p);
-            if (v > limits) break;
-            idx++;
+    long long n;
+    cin >> n;
+    string sn = std::to_string(n);
+    reverse(sn.begin(), sn.end());
+    int sz = (int)sn.size();
+    for (int x = 0; x < 10; x++) {
+        for (int y = 0; y < 10; y++) {
+            int z = x + 2 * y;
+            if (z % 10 == sn[0] - '0') {
+                dp[1][x][y][z / 10][x > 0 ? 1 : 0][y > 0 ? 1 : 0]++;
+            }
         }
-        cout << idx - 1 << endl;
     }
+    for (int idx = 1; idx < sz; idx++) {
+        for (int sx = 0; sx <= 135; sx++) {
+            for (int sy = 0; sy <= 135; sy++) {
+                for (int du = 0; du <= 2; du++) {
+                    for (int x0 = 0; x0 < 2; x0++) {
+                        for (int y0 = 0; y0 < 2; y0++) {
+                            if (x0 + y0 == 0) continue;
+                            if (dp[idx][sx][sy][du][x0][y0]) {
+                                for (int x = 0; x < 10; x++) {
+                                    for (int y = 0; y < 10; y++) {
+                                        int z = x + 2 * y + du;
+                                        if (z % 10 == sn[idx] - '0') {
+                                            int ndu = z / 10;
+                                            int nx0 = (x0 > 0) || (x > 0);
+                                            int ny0 = (y0 > 0) || (y > 0);
+                                            dp[idx + 1][sx + x][sy + y][ndu][nx0][ny0] += dp[idx][sx][sy][du][x0][y0];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    long long ans = 0;
+    for (int x : primes) {
+        for (int y : primes) {
+            ans += dp[sz][x][y][0][1][1];
+        }
+    }
+    cout << ans << '\n';
 }
 
 void solve() {
