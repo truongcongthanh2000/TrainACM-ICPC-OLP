@@ -23,7 +23,7 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-long long dp[16][200][200][3][2][2];
+long long dp[16][200][200][3];
 bool ok[200];
 bool prime(int x) {
     for (int i = 2; i * i <= x; i++) {
@@ -46,7 +46,7 @@ void sol() {
         for (int y = 0; y < 10; y++) {
             int z = x + 2 * y;
             if (z % 10 == sn[0] - '0') {
-                dp[1][x][y][z / 10][x > 0 ? 1 : 0][y > 0 ? 1 : 0]++;
+                dp[1][x][y][z / 10]++;
             }
         }
     }
@@ -54,20 +54,13 @@ void sol() {
         for (int sx = 0; sx <= 135; sx++) {
             for (int sy = 0; sy <= 135; sy++) {
                 for (int du = 0; du <= 2; du++) {
-                    for (int x0 = 0; x0 < 2; x0++) {
-                        for (int y0 = 0; y0 < 2; y0++) {
-                            if (x0 + y0 == 0) continue;
-                            if (dp[idx][sx][sy][du][x0][y0]) {
-                                for (int x = 0; x < 10; x++) {
-                                    for (int y = 0; y < 10; y++) {
-                                        int z = x + 2 * y + du;
-                                        if (z % 10 == sn[idx] - '0') {
-                                            int ndu = z / 10;
-                                            int nx0 = (x0 > 0) || (x > 0);
-                                            int ny0 = (y0 > 0) || (y > 0);
-                                            dp[idx + 1][sx + x][sy + y][ndu][nx0][ny0] += dp[idx][sx][sy][du][x0][y0];
-                                        }
-                                    }
+                    if (dp[idx][sx][sy][du]) {
+                        for (int x = 0; x < 10; x++) {
+                            for (int y = 0; y < 10; y++) {
+                                int z = x + 2 * y + du;
+                                if (z % 10 == sn[idx] - '0') {
+                                    int ndu = z / 10;
+                                    dp[idx + 1][sx + x][sy + y][ndu] += dp[idx][sx][sy][du];
                                 }
                             }
                         }
@@ -79,7 +72,7 @@ void sol() {
     long long ans = 0;
     for (int x : primes) {
         for (int y : primes) {
-            ans += dp[sz][x][y][0][1][1];
+            ans += dp[sz][x][y][0];
         }
     }
     cout << ans << '\n';
