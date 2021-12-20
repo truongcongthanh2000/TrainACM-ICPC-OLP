@@ -23,126 +23,182 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-template<typename flow_t = int>
-struct PushRelabel {
-    struct Edge {
-        int to, rev;
-        flow_t f, c;
-    };
-    vector<vector<Edge> > g;
-    PushRelabel(int n) : g(n), ec(n), cur(n), hs(2*n), H(n) {}
+struct DinicFlow { ///Base 0-th, The vertices are numbered from 0 to n - 1
+    const int oo = 2e9; ///if flow > int, use long long
+    int n, numEdge;
+    vector <int> point, next, head, Dist, work;
+    vector <int> flow, cap; ///if flow > int, use long long
 
-    int addEdge(int s, int t, flow_t cap, flow_t rcap=0) {
-        if (s == t) return -1;
-        Edge a = {t, (int)g[t].size(), 0, cap};
-        Edge b = {s, (int)g[s].size(), 0, rcap};
-        g[s].push_back(a);
-        g[t].push_back(b);
-
-        // Return ID of forward edge.
-        return b.rev;
+    DinicFlow(int _n = 0) {
+        n = _n; numEdge = 0;
+        head.assign(n + 7, -1);
+        work.assign(n + 7, -1);
+        Dist.assign(n + 7, 0);
+        point.clear();
+        cap.clear();
+        flow.clear();
+        next.clear();
     }
 
-    flow_t maxFlow(int s, int t) {
-        int v = g.size();
-        H[s] = v;
-        ec[t] = 1;
-        vector<int> co(2*v);
-        co[0] = v-1;
-        for (int i = 0; i < v; ++i) {
-            cur[i] = g[i].data();
-        }
-        for (auto &e : g[s]) {
-            add_flow(e, e.c);
-        }
-        if (hs[0].size()) {
-            for (int hi = 0; hi >= 0;) {
-                int u = hs[hi].back();
-                hs[hi].pop_back();
-                while (ec[u] > 0) { // discharge u
-                    if (cur[u] == g[u].data() + g[u].size()) {
-                        H[u] = 1e9;
-                        for (auto &e : g[u]) {
-                            if (e.c && H[u] > H[e.to]+1) {
-                                H[u] = H[e.to]+1;
-                                cur[u] = &e;
-                            }
-                        }
-                        if (++co[H[u]], !--co[hi] && hi < v) {
-                            for (int i = 0; i < v; ++i) {
-                                if (hi < H[i] && H[i] < v){
-                                    --co[H[i]];
-                                    H[i] = v + 1;
-                                }
-                            }
-                        }
-                        hi = H[u];
-                    } else if (cur[u]->c && H[u] == H[cur[u]->to] + 1) {
-                        add_flow(*cur[u], min(ec[u], cur[u]->c));
-                    }
-                    else {
-                        ++cur[u];
-                    }
+    void rs() {
+        numEdge = 0;
+        head.assign(n + 7, -1);
+        work.assign(n + 7, -1);
+        Dist.assign(n + 7, 0);
+        point.clear();
+        cap.clear();
+        flow.clear();
+        next.clear();
+    }
+
+    void add_Edge(int u, int v, int c1, int c2 = 0) {///if flow > int, use long long c1, c2
+        ///u -> v: c1
+        point.push_back(v); flow.push_back(0); cap.push_back(c1); next.push_back(head[u]); head[u] = numEdge++;
+        ///v -> u: c2
+        point.push_back(u); flow.push_back(0); cap.push_back(c2); next.push_back(head[v]); head[v] = numEdge++;
+    }
+
+    bool BFS(int s, int t) { ///check has path from s to t
+        queue <int> Q;
+        for (int i = 0; i <= n; i++) Dist[i] = -1;
+        Dist[s] = 0;
+        Q.push(s);
+        while ((int)Q.size() != 0) {
+            int u = Q.front(); Q.pop();
+            for (int i = head[u]; i >= 0; i = next[i]) {
+                int v = point[i];
+                if (flow[i] < cap[i] && Dist[v] == -1) {
+                    Dist[v] = Dist[u] + 1;
+                    if (v == t) return true;
+                    Q.push(v);
                 }
-                while (hi>=0 && hs[hi].empty()) --hi;
             }
         }
-        return -ec[s];
+        return false;
     }
 
-private:
-    vector<flow_t> ec;
-    vector<Edge*> cur;
-    vector<vector<int> > hs;
-    vector<int> H;
-
-    void add_flow(Edge& e, flow_t f) {
-        Edge &back = g[e.to][e.rev];
-        if (!ec[e.to] && f) {
-            hs[H[e.to]].push_back(e.to);
+    int DFS(int s, int t, int f) { ///if flow > int, use long long
+        if (f == 0) ///Min F always >= 0 so if f = 0 break recursive
+            return f;
+        if (s == t)
+            return f;
+        for (int &i = work[s]; i >= 0; i = next[i]) { ///&i so important, don't use i = work[s] because it's maybe TLE
+            int v = point[i];
+            if (flow[i] < cap[i] && Dist[v] == Dist[s] + 1) {
+                int D = DFS(v, t, min(f, cap[i] - flow[i]));
+                if (D > 0) {
+                    flow[i] += D;
+                    flow[i ^ 1] -= D;
+                    return D;
+                }
+            }
         }
-        e.f += f; e.c -= f;
-        ec[e.to] += f;
-        back.f -= f; back.c += f;
-        ec[back.to] -= f;
+        return 0;
+    }
+
+    int maxFlow(int s, int t) { ///if flow > int, use long long
+        int Flow = 0;
+        while (BFS(s, t)) {
+            for (int i = 0; i <= n; i++) work[i] = head[i];
+            while (true) {
+                int d = DFS(s, t, oo);
+                if (d == 0) break;
+                Flow += d;
+            }
+        }
+        return Flow;
+    }
+
+    int GetFlow(int idEdge) {
+        return flow[idEdge];
     }
 };
 
+// Source: RR
+// Tested with VOJ - MCQUERY
+
+/*
+ * Find min cut between every pair of vertices using N max_flow call (instead of N^2)
+ * Not tested with directed graph
+ * Index start from 0
+ */
+struct GomoryHu {
+    int ok[202], cap[202][202];
+    int answer[202][202], parent[202];  
+    int n;
+    DinicFlow flow;
+
+    GomoryHu(int _n) : n(_n), flow(_n) {
+        for(int i = 0; i < n; ++i) ok[i] = parent[i] = 0;
+        for(int i = 0; i < n; ++i)
+            for(int j = 0; j < n; ++j)
+                cap[i][j] = 0, answer[i][j] = INF;
+    }
+
+    void addEdge(int u, int v, int c) {
+        cap[u][v] += c;
+    }
+
+    void calc() {
+        for(int i = 0; i < n; ++i) parent[i]=0;
+        for(int i = 0; i < n; ++i)
+            for(int j = 0; j < n; ++j)
+                answer[i][j]=INF;
+
+        for(int i = 1; i <= n-1; ++i) {
+            flow.rs();
+            for (int u = 0; u < n; u++) {
+                for (int v = 0; v < n; v++) {
+                    if (cap[u][v]) {
+                        flow.add_Edge(u, v, cap[u][v]);
+                    }
+                }
+            }
+            int f = flow.maxFlow(i, parent[i]);
+
+            bfs(i);
+            for(int j = i+1; j < n; ++j)
+                if (ok[j] && parent[j]==parent[i])
+                    parent[j]=i;
+            
+            answer[i][parent[i]] = min(f, answer[i][parent[i]]);
+            for(int j = 0; j < i; ++j)
+                answer[i][j]=answer[j][i]=min(f,answer[parent[i]][j]);
+        }
+    }
+    void bfs(int start) {
+        memset(ok,0,sizeof ok);
+        queue<int> qu;
+        qu.push(start);
+        while (!qu.empty()) {
+            int u=qu.front(); qu.pop();
+            for (int i = flow.head[u]; i >= 0; i = flow.next[i]) {
+                int v = flow.point[i];
+                if (!ok[v] && flow.flow[i] < flow.cap[i]) {
+                    ok[v] = 1;
+                    qu.push(v);
+                }
+            }
+        }
+    }
+};
 void sol() {
     int n;
     cin >> n;
     vector<vector<int> > a(n, vector<int>(n, 0));
-    vector<pair<int, int> > edge;
+    GomoryHu gh(n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> a[i][j];
-            if (a[i][j] > 0) edge.push_back({i, j});
+            gh.addEdge(i, j, a[i][j]);
         }
     }
-    vector<vector<int> > b = a;
-    for (int k = 0; k < n; k++) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                b[i][j] = max(b[i][j], min(b[i][k], b[k][j]));
-            }
-        }
-    }
-    vector<vector<int> > ans(n, vector<int>(n, 0));
-    int s = n, t = n + 1;
-    PushRelabel pr(t + 1);
-    for (auto [u, v] : edge) {
-        pr.addEdge(u, v, a[u][v]);
-    }
+    gh.calc();
     for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (b[i][j] == 0) continue;
-            pr.addEdge(s, i, INF);
-            pr.addEdge(j, t, INF);
-            ans[i][j] = ans[j][i] = pr.maxFlow(s, t);
+        for (int j = 0; j < n; j++) {
+            if (i == j) cout << 0 << ' ';
+            else cout << gh.answer[i][j] << ' ';
         }
-    }
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) cout << ans[i][j] << ' ';
         cout << '\n';
     }
 }

@@ -29,7 +29,7 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Central%20Provincial%20Contest)
 
-## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - 8/14 Problems (updating ... in problem A))
+## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - 9/14 Problems (updating ... in problem G))
 
 [Link contest](https://icpc.hcmus.edu.vn/public)
 
