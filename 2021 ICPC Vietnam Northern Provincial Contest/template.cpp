@@ -24,14 +24,22 @@ const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
 void sol() {
-    
+    string s; cin >> s;
+    vector<int> last;
+    int n = s.size();
+    for (int i = n - 1; i >= 0; --i) {
+        if (s.substr(i) == s.substr(0, n - i)) last.push_back(n - i);
+    }
+    int res = 0;
+    for (int i : last) res += pow(2, i);
+    cout << res << '\n';
 }
 
 void solve() {
     clock_t start, end;
     start = clock();
     int T = 1;
-    //cin >> T;
+    cin >> T;
     int TestCase = 0;
     while (T--) {
         TestCase += 1;

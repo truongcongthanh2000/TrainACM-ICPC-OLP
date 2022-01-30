@@ -23,23 +23,28 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
+typedef pair<int, int> ii;
+
+int lcm(int a, int b){
+    int gcd = __gcd(a, b);
+    return a * b / gcd;
+}
+
 void sol() {
-    string s; cin >> s;
-    vector<int> last;
-    int n = s.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (s.substr(i) == s.substr(0, n - i)) last.push_back(n - i);
+    int n;
+    cin >> n;
+    int res = 1e9;
+    for(int i = 0; i < n; i++){
+        int y, c1, c2;
+        cin >> y >> c1 >> c2;
+        res = min(res, y + lcm(c1, c2));
     }
-    int res = 0;
-    for (int i : last) res += pow(2, i);
-    cout << res << '\n';
+    cout << res;
 }
 
 void solve() {
-    clock_t start, end;
-    start = clock();
     int T = 1;
-    cin >> T;
+    //cin >> T;
     int TestCase = 0;
     while (T--) {
         TestCase += 1;
@@ -48,8 +53,6 @@ void solve() {
         sol();
         //if (T) cout << '\n';
     }
-    end = clock();
-    cerr << "Time = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
 }
 
 int main(int argc,char *argv[]) {

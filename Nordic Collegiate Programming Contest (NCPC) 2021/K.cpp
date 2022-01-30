@@ -23,23 +23,24 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
+
+
 void sol() {
-    string s; cin >> s;
-    vector<int> last;
-    int n = s.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (s.substr(i) == s.substr(0, n - i)) last.push_back(n - i);
-    }
-    int res = 0;
-    for (int i : last) res += pow(2, i);
-    cout << res << '\n';
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n - 1);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    for(int i = 0; i < n - 1; i++) cin >> b[i];
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    int j = 0;
+    while (j < n && a[j] == b[j]) j++;
+    cout << a[j];
 }
 
 void solve() {
-    clock_t start, end;
-    start = clock();
     int T = 1;
-    cin >> T;
+    //cin >> T;
     int TestCase = 0;
     while (T--) {
         TestCase += 1;
@@ -48,8 +49,6 @@ void solve() {
         sol();
         //if (T) cout << '\n';
     }
-    end = clock();
-    cerr << "Time = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
 }
 
 int main(int argc,char *argv[]) {
