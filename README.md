@@ -17,6 +17,12 @@
 
 ## ACM-ICPC in season 2021-2022
 
+## Nordic Collegiate Programming Contest (NCPC) 2021 (Date: 30/01/2022 - 9/13 Problems)
+
+[Link contest](https://open.kattis.com/contests/g2uttv/standings)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)%202021)
+
 ## 2021 ICPC Vietnam Northern Provincial Programming Contest (Date: 19/12/2021 - 7/13 Problems)
 
 [Link contest](http://icpcvn.github.io/2021/northern/scoreboard.html)
