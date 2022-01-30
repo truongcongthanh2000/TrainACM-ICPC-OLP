@@ -2,3 +2,5 @@ Makefile
 *.py
 *.out
 .vscode
+input.txt
+output.txt
