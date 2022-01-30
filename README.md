@@ -17,13 +17,19 @@
 
 ## ACM-ICPC in season 2021-2022
 
-## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 12/12/2021 - 11/16 Problems)
+## 2021 ICPC Vietnam Northern Provincial Programming Contest (Date: 19/12/2021 - 7/13 Problems)
+
+[Link contest](http://icpcvn.github.io/2021/northern/scoreboard.html)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Northern%20Provincial%20Contest)
+
+## 2021 ICPC Vietnam Central Provincial Programming Contest (Date: 12/12/2021 - 12/16 Problems)
 
 [Link contest](http://icpcvn.github.io/2021/central/scoreboard.html)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Central%20Provincial%20Contest)
 
-## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - 8/14 Problems (updating ... in problem A))
+## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - 9/14 Problems (updating ... in problem G))
 
 [Link contest](https://icpc.hcmus.edu.vn/public)
 

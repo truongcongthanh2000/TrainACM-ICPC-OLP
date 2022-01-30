@@ -1,4 +1,4 @@
-# 2021 ICPC Vietnam North Provincial Contest
+# Nordic Collegiate Programming Contest (NCPC) 2021
 
 ## Usage
 
