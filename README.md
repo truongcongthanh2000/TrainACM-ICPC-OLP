@@ -17,6 +17,12 @@
 
 ## ACM-ICPC in season 2021-2022
 
+## 2021 ICPC Vietnam National Contest (Date: 20/02/2022 - 8/13 Problems)
+
+[Link contest](https://oj.vnoi.info/contest/icpc21_national)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20National%20Contest)
+
 ## Nordic Collegiate Programming Contest (NCPC) 2021 (Date: 30/01/2022 - 9/13 Problems)
 
 [Link contest](https://open.kattis.com/contests/g2uttv/standings)
