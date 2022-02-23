@@ -17,7 +17,7 @@
 
 ## ACM-ICPC in season 2021-2022
 
-## 2021 ICPC Vietnam National Contest (Date: 20/02/2022 - 9/13 Problems)
+## 2021 ICPC Vietnam National Contest (Date: 20/02/2022 - 10/13 Problems)
 
 [Link contest](https://oj.vnoi.info/contest/icpc21_national)
 
