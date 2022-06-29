@@ -1,57 +1,33 @@
 # TrainACM-ICPC-OLP with team HCMUT OnlyBoys
 
 ## Member in team
-1. Trương Công Thành - [codeforces: congthanh123 (max rating: Master, 218)](https://codeforces.com/profile/congthanh123)
+1. Trương Công Thành - [codeforces: congthanh123 (max rating: Master, 2187)](https://codeforces.com/profile/congthanh123)
 2. Trần Thanh Bình - [codeforces: binhtranmcs (max rating: Candidate Master, 2089)](https://codeforces.com/profile/binhtranmcs)
 3. Trần Đức Duy - [codeforces: tin2016_tdduy (max rating: Expert, 1667)](https://codeforces.com/profile/tin2016_tdduy)
+4. Lê Đức Toàn (new member in 2022) - [codeforces: Biot_DucToan (max rating: Master, 2113)](https://codeforces.com/profile/Biot_DucToan)
 
 ## Team achievement
 
-### In 2019
-1. #### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
-2. #### Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
+### In 2022 (Continue ...)
+
+### In 2021
+1. #### Second Prize ICPC 2021 Asia Ha Noi Regional
+2. #### Silver Medal ICPC 2021 Vietnam National Contest
+
 ### In 2020
 1. #### Silver Medal ICPC 2020 Asia Can Tho Regional
 2. #### Silver Medal ICPC 2020 Vietnam National Contest
 3. #### Silver Medal ICPC 2020 Vietnam Southern Provinial Contest
 
+### In 2019
+1. #### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
+2. #### Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
+
+## ACM-ICPC in season 2022-2023 (Continue ...)
+
 ## ACM-ICPC in season 2021-2022
 
-## 2021 ICPC Vietnam National Contest (Date: 20/02/2022 - 10/13 Problems)
-
-[Link contest](https://oj.vnoi.info/contest/icpc21_national)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20National%20Contest)
-
-## Nordic Collegiate Programming Contest (NCPC) 2021 (Date: 30/01/2022 - 9/13 Problems)
-
-[Link contest](https://open.kattis.com/contests/g2uttv/standings)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/Nordic%20Collegiate%20Programming%20Contest%20(NCPC)%202021)
-
-## 2021 ICPC Vietnam Northern Provincial Programming Contest (Date: 19/12/2021 - 7/13 Problems)
-
-[Link contest](http://icpcvn.github.io/2021/northern/scoreboard.html)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Northern%20Provincial%20Contest)
-
-## 2021 ICPC Vietnam Central Provincial Programming Contest (Date: 12/12/2021 - 12/16 Problems)
-
-[Link contest](http://icpcvn.github.io/2021/central/scoreboard.html)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Central%20Provincial%20Contest)
-
-## 2021 ICPC Vietnam Southern Provincial Programming Contest (Date: 05/12/2021 - 9/14 Problems (updating ... in problem G))
-
-[Link contest](https://icpc.hcmus.edu.vn/public)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Vietnam%20Southern%20Provincial%20Contest)
-
-## VNOJ: ICPC Practice Contest 2021 (Date: 21/11/2021 - 9/14 Problems)
-
-[Link contest](https://oj.vnoi.info/contest/icpc21_beta)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/ICPC_2021_Beta_VNOJ)
+[Link to Trainning Contest ACM-ICPC season 2020-2021 (file Train2020-2021.md)](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/blob/master/Train2021-2022.md)
 
 ## ACM-ICPC in season 2020-2021
 
