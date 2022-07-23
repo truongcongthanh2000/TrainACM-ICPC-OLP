@@ -24,7 +24,19 @@ const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
 void sol() {
-
+    int n;
+    cin >> n;
+    int x;
+    cin >> x;
+    for (int i = 1; i < n; i++) {
+        int y;
+        cin >> y;
+        if (y % x == 0) {
+            cout << y << '\n';
+            cin >> x;
+            i++;
+        }
+    }
 }
 
 void solve() {

@@ -23,8 +23,33 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-void sol() {
+int lp[maxN];
 
+void sieve() {
+    for (int i = 2; i * i < maxN; ++i) {
+        if (!lp[i]) {
+            for (int j = i; j * j < maxN; j += i) lp[j] = i;
+        }
+    }
+    for (int i = 2; i < maxN; ++i) {
+        if (!lp[i]) lp[i] = i;
+    }
+}
+
+void sol() {
+    sieve();
+    long long n; cin >> n;
+    long long den = 1;
+    long long num = 1;
+    for (int i = 2; i < maxN; ++i) {
+        if (lp[i] != i) continue; 
+        if (n / i >= den) {
+            den *= i;
+            num *= i - 1;
+        }
+    }
+    long long g = __gcd(den, num);
+    cout << (den - num) / g << "/" << den / g;
 }
 
 void solve() {
@@ -41,7 +66,7 @@ void solve() {
         //if (T) cout << '\n';
     }
     end = clock();
-    cerr << "Time = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
+    cerr << "\nTime = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
 }
 
 int main(int argc,char *argv[]) {

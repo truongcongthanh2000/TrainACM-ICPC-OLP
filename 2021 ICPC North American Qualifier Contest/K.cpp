@@ -24,14 +24,31 @@ const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
 void sol() {
-
+    int m, n; cin >> m >> n;
+    vector<int> arr(m + 1, 0);
+    for (int i = 0; i < m; ++i) {
+        cin >> arr[i];
+    }
+    vector<int> left(m + 1, 0), right(m + 1, 0);
+    for (int i = 0; i < m; ++i) left[i + 1] = left[i] + arr[i];
+    for (int i = m - 1; i >= 0; --i) right[i] = right[i + 1] + arr[i];
+    while (n--) {
+        bool ok = false;
+        int q; cin >> q;
+        for (int i = m; i >= 0; --i) {
+            int id = lower_bound(left.begin(), left.end(), q - right[i]) - left.begin();
+            if (id > i || left[id] != q - right[i]) continue;
+            ok = true;
+        }
+        cout << (ok ? "Yes\n" : "No\n");
+    }
 }
 
 void solve() {
     clock_t start, end;
     start = clock();
     int T = 1;
-    // cin >> T;
+    //cin >> T;
     int TestCase = 0;
     while (T--) {
         TestCase += 1;

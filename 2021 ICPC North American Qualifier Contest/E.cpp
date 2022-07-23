@@ -24,7 +24,15 @@ const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
 void sol() {
-
+    string s;
+    cin >> s;
+    int n = (int)s.size();
+    int L = s.find('(');
+    int ans = 0;
+    for (int i = 0; i < L; i++) ans += s[i] == '|';
+    for (int i = L + 1; i < n; i++) ans -= s[i] == '|';
+    if (ans == 0) cout << "correct";
+    else cout << "fix";
 }
 
 void solve() {
@@ -41,7 +49,7 @@ void solve() {
         //if (T) cout << '\n';
     }
     end = clock();
-    cerr << "Time = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
+    cerr << "\nTime = " << (double)(end - start) / (double)CLOCKS_PER_SEC << '\n';
 }
 
 int main(int argc,char *argv[]) {
