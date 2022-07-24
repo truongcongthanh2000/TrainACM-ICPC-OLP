@@ -1,10 +1,9 @@
-#define _USE_MATH_DEFINES
 #include <bits/stdc++.h>
 
 using namespace std;
 
-#define INP "input"
-#define OUT "output"
+#define INP "sol"
+#define OUT "sol"
 
 const long long INF_LL = 1e18;
 const int INF = 1e9 + 100;
@@ -14,10 +13,8 @@ const int dx[4] = {-1, 0, 1, 0};
 const int dy[4] = {0, 1, 0, -1};
 
 void open_file() {
-    #ifdef THEMIS
-        freopen(INP ".txt","r",stdin);
-        freopen(OUT ".txt","w",stdout);
-    #endif // THEMIS
+        // freopen(INP ".inp","r",stdin);
+        // freopen(OUT ".out","w",stdout);
 }
 
 const int maxN = 1e6 + 100;
@@ -85,12 +82,13 @@ void sol() {
 
         val = 0;
 
-        mn = -1;
+        int mn1 = -1;
         for (int i = 9; i >= 1; --i) 
             if (!vis[i])      
-                mn = i;
-        if (mn != -1) {     
-            for (int i = 0; i <= (int) dig.size(); ++i) {
+                mn1 = i;
+        if (mn1 != -1) {     
+            val = mn1;
+            for (int i = 1; i <= (int) dig.size(); ++i) {
                 val = val * 10 + mn;
             }
             // cout << diff1 << ' ' << val << '\n';
