@@ -1,4 +1,4 @@
-# Name contest ...
+# 2021 ICPC Rocky Mountain Regional Programming Contest
 
 ## Usage
 
