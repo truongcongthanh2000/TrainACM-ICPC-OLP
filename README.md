@@ -25,7 +25,7 @@
 
 ## ACM-ICPC in season 2022-2023
 
-## 2021 ICPC Rocky Mountain Regional Programming Contest (Date: 13/08/2022 - 10/14 Problems)
+## 2021 ICPC Rocky Mountain Regional Programming Contest (Date: 13/08/2022 - 11/14 Problems)
 
 [Link contest](https://open.kattis.com/contests/dz77mz)
 
