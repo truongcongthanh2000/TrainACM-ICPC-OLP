@@ -1,10 +1,10 @@
 #!/bin/bash
-g++ -std=c++14 $1.cpp
+g++ -std=c++14 $1.cpp -o main
 if [ "$2" = "1" ];
 then
-    ./a < input.txt > output.txt
+    ./main < input.txt > output.txt
 else
-    ./a < input.txt
+    ./main < input.txt
 fi
 
-rm a.exe
+rm main
