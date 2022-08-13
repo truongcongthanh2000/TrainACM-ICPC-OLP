@@ -27,7 +27,7 @@ std::ostream& operator<<(std::ostream& out, const std::vector<vector<T> >& a) {
 
 template <typename T>
 std::istream& operator>>(std::istream& is, std::vector<T>& v) {
-    std::copy(std::istream_iterator<T>(is), std::istream_iterator<T>(), std::back_inserter(v));
+    for (auto &x : v) is >> x;
     return is;
 }
 /* end template */
