@@ -25,6 +25,43 @@ void Diophante(long long a, long long b, long long &d, long long&x)
 }
 
 {
+    // dijkstra for minimize path
+    template <typename TEdge, typename TVertex>
+    void dijkstra(const vector<vector<pair<int, TEdge>>>& adj, int source, vector<TVertex>& d) {
+        int n = (int)adj.size();
+
+        d.resize(n);
+        for (int i = 0; i < n; i++) d[i] = std::numeric_limits<TVertex>::max();  // initialize for each vertex
+        d[source] = 0;                                                           /// initialize for vertex source
+
+        typedef pair<TVertex, int> i2;
+        priority_queue<i2, vector<i2>, std::greater<i2>> Q;
+        Q.push({d[source], source});
+
+        while ((int)Q.size() != 0) {
+            i2 valueTop = Q.top();
+            Q.pop();
+
+            TVertex du = valueTop.first;
+            int u = valueTop.second;
+            if (d[u] != du) {  // or abs(d[u] - du) > EPS for double
+                continue;
+            }
+
+            for (auto it : adj[u]) {
+                int v = it.first;
+                TEdge w = it.second;
+
+                if (d[v] > d[u] + w) {  // if d[u] + w is better than d[v]
+                    d[v] = d[u] + w;
+                    Q.push({d[v], v});
+                }
+            }
+        }
+    }
+}
+
+{
     ///MOD NUM, MOD < 2^31
     template<int _MOD>
     class num_t {

@@ -16,7 +16,7 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& a) {
 }
 
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const std::vector<vector<T> >& a) {
+std::ostream& operator<<(std::ostream& out, const std::vector<vector<T>>& a) {
     out << (int)a.size() << '\n';
     for (const auto& v : a) {
         for (const auto& value : v) out << value << ' ';
@@ -49,31 +49,6 @@ void open_file() {
 const int maxN = 1e6 + 100;
 const int MOD = 1e9 + 7;
 
-template <typename T>
-struct sum_2D {
-    int n, m;
-    vector<vector<T> > a;
-    sum_2D(int _n, int _m) {
-        n = _n;
-        m = _m;
-        a = vector<vector<T> >(n + 1, vector<T>(m + 1, 0));
-    }
-
-    void set_value(int x, int y, T value) {
-        a[x][y] = value;
-    }
-
-    void precalc() {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) a[i][j] += a[i - 1][j] + a[i][j - 1] - a[i - 1][j - 1];
-        }
-    }
-
-    T get(int xL, int yL, int xR, int yR) {
-        return a[xR][yR] - a[xL - 1][yR] - a[xR][yL - 1] + a[xL - 1][yL - 1];
-    }
-};
-
 /// Graham
 struct Point {
     long long x, y;
@@ -94,6 +69,42 @@ int S(Point A, Point B, Point C) {
     }
     return ans;
 }
+
+// dijkstra for minimize path
+template <typename TEdge, typename TVertex>
+void dijkstra(const vector<vector<pair<int, TEdge>>>& adj, int source, vector<TVertex>& d) {
+    int n = (int)adj.size();
+
+    d.resize(n);
+    for (int i = 0; i < n; i++) d[i] = std::numeric_limits<TVertex>::max();  // initialize for each vertex
+    d[source] = 0;                                                           /// initialize for vertex source
+
+    typedef pair<TVertex, int> i2;
+    priority_queue<i2, vector<i2>, std::greater<i2>> Q;
+    Q.push({d[source], source});
+
+    while ((int)Q.size() != 0) {
+        i2 valueTop = Q.top();
+        Q.pop();
+
+        TVertex du = valueTop.first;
+        int u = valueTop.second;
+        if (abs(d[u] - du) > EPS) {  // or abs(d[u] - du) > EPS for double
+            continue;
+        }
+
+        for (auto it : adj[u]) {
+            int v = it.first;
+            TEdge w = it.second;
+
+            if (d[v] > d[u] + w) {  // if d[u] + w is better than d[v]
+                d[v] = d[u] + w;
+                Q.push({d[v], v});
+            }
+        }
+    }
+}
+
 void sol() {
     int n, m;
     cin >> n >> m;
@@ -125,7 +136,7 @@ void sol() {
         return s[xR][yR] != '#';
     };
 
-    vector<vector<pair<int, double> > > adj(n * (m + 1) + 2 * m);
+    vector<vector<pair<int, double>>> adj(n * (m + 1) + 2 * m);
     auto addEdge = [&](int u, int v, double d) {
         adj[u].push_back({v, d});
         adj[v].push_back({u, d});
@@ -149,27 +160,8 @@ void sol() {
         }
     }
 
-    typedef pair<double, int> i2;
-    priority_queue<i2, vector<i2>, greater<i2> > Q;
-
-    vector<double> d(n * (m + 1) + 2 * m, INF);
-    d[id(0, 0)] = 0;
-    Q.push({0, id(0, 0)});
-    while ((int)Q.size() > 0) {
-        i2 A = Q.top();
-        Q.pop();
-        int u = A.second;
-        double du = A.first;
-        if (abs(d[u] - du) > EPS) continue;
-        for (auto it : adj[u]) {
-            int v = it.first;
-            double w = it.second;
-            if (d[v] > d[u] + w) {
-                d[v] = d[u] + w;
-                Q.push({d[v], v});
-            }
-        }
-    }
+    vector<double> d;
+    dijkstra(adj, id(0, 0), d);
     cout << fixed << setprecision(10) << d[id(n - 1, m - 1, 1) + 2 + m];
 }
 

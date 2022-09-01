@@ -25,11 +25,11 @@
 
 ## ACM-ICPC in season 2022-2023
 
-## 2021 ICPC Mid-Atlantic USA Regional Contest (Date: 28/08/2022 - .../13 Problems)
+## 2021 ICPC Mid-Atlantic USA Regional Contest (Date: 28/08/2022 - 12/13 Problems)
 
 [Link contest](https://open.kattis.com/contests/cd7rid)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20Rocky%20Mountain%20Regional%20Programming%20Contest)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Mid-Atlantic%20USA%20Regional%20Contest)
 
 ## 2021 ICPC Rocky Mountain Regional Programming Contest (Date: 13/08/2022 - 11/14 Problems)
 
