@@ -25,11 +25,11 @@
 
 ## ACM-ICPC in season 2022-2023
 
-## 2021 ICPC East-Central NA Regional Contest (Date: 24/09/2022 - .../13 Problems)
+## 2021 ICPC East-Central NA Regional Contest (Date: 24/09/2022 - 6/13 Problems)
 
 [Link contest](https://open.kattis.com/contests/yfgp5g)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Mid-Atlantic%20USA%20Regional%20Contest)
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20East-Central%20NA%20Regional%20Contest)
 
 ## 2021 ICPC Universidad Nacional de Colombia Programming Contest (Date: 18/09/2022 - .../13 Problems)
 
