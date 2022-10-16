@@ -1,5 +1,4 @@
 Makefile
-*.py
 *.out
 .vscode
 input.txt
