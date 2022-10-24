@@ -25,6 +25,12 @@
 
 ## ACM-ICPC in season 2022-2023
 
+## 2022 ACM-ICPC Vietnam Central Provincial Programming Contest (Date: 23/10/2022 - 11/14 Problems)
+
+[Link contest](https://icpc-central22.bkdnoj.com/contest/icpc_central_22)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20Vietnam%20Central%20Provincial%20Programming%20Contest) Stuck at problem L: Time Limit Execeded
+
 ## 2022 ACM-ICPC Vietnam Northern Provincial Programming Contest (Date: 16/10/2022 - 7/12 Problems)
 
 [Link contest](https://icpc-north22.vnoi.info/contest/icpc_northern22)
