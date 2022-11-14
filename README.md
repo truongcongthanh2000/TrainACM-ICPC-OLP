@@ -25,7 +25,7 @@
 
 ## ACM-ICPC in season 2022-2023
 
-## 2022 ACM-ICPC Vietnam National Programming Contest (Date: 13/11/2022 - 7/13 Problems)
+## 2022 ACM-ICPC Vietnam National Programming Contest (Date: 13/11/2022 - 9/13 Problems)
 
 [Link contest](https://icpc-national.vnoi.info/contest/icpc_national22)
 
