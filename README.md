@@ -8,7 +8,9 @@
 
 ## Team achievement
 
-### In 2022 (Continue ...)
+### In 2022
+1. #### First Prize ICPC 2022 Vietnam National Contest
+2. #### Second Prize ICPC 2022 Vietnam Southern Provincial Contest
 
 ### In 2021
 1. #### Second Prize ICPC 2021 Asia Ha Noi Regional
@@ -17,11 +19,11 @@
 ### In 2020
 1. #### Silver Medal ICPC 2020 Asia Can Tho Regional
 2. #### Silver Medal ICPC 2020 Vietnam National Contest
-3. #### Silver Medal ICPC 2020 Vietnam Southern Provinial Contest
+3. #### Silver Medal ICPC 2020 Vietnam Southern Provincial Contest
 
 ### In 2019
 1. #### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
-2. #### Silver Medal ICPC 2019 Vietnam Southern Provinial Contest (rank 17th)
+2. #### Silver Medal ICPC 2019 Vietnam Southern Provincial Contest (rank 17th)
 
 ## ACM-ICPC in season 2022-2023
 
