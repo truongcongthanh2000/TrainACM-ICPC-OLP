@@ -27,6 +27,11 @@
 
 ## ACM-ICPC in season 2022-2023
 
+## 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - ../.. Problems)
+
+[Link contest](https://mirror.icpckorea.net/domjudge/public)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20Seoul%20Regional%20Mirror%20Contest)
 ## 2022 ACM-ICPC Vietnam National Programming Contest (Date: 13/11/2022 - 9/13 Problems)
 
 [Link contest](https://icpc-national.vnoi.info/contest/icpc_national22)
