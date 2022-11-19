@@ -1,4 +1,4 @@
-# 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - ../.. Problems)
+# 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - 5/12 Problems)
 
 ## Usage
 

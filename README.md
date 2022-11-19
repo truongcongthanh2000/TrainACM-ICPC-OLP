@@ -27,7 +27,7 @@
 
 ## ACM-ICPC in season 2022-2023
 
-## 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - ../.. Problems)
+## 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - 5/12 Problems)
 
 [Link contest](https://mirror.icpckorea.net/domjudge/public)
 
