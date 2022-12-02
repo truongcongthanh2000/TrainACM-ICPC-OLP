@@ -27,6 +27,12 @@
 
 ## ACM-ICPC in season 2022-2023
 
+## 2022 ICPC NERC, Southern and Volga Russian Regional Contest (Date: 27/11/2022 - 6/14 Problems)
+
+[Link contest](https://codeforces.com/contests/1765)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20NERC,%20Southern%20and%20Volga%20Russian%20Regional%20Contest)
+
 ## 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - 5/12 Problems)
 
 [Link contest](https://mirror.icpckorea.net/domjudge/public)
