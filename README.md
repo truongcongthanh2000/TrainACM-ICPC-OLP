@@ -9,8 +9,9 @@
 ## Team achievement
 
 ### In 2022
-1. #### First Prize ICPC 2022 Vietnam National Contest
-2. #### Second Prize ICPC 2022 Vietnam Southern Provincial Contest
+1. #### Silver Medal ICPC 2022 Asia HoChiMinh City Regional Contest
+2. #### First Prize ICPC 2022 Vietnam National Contest
+3. #### Second Prize ICPC 2022 Vietnam Southern Provincial Contest
 
 ### In 2021
 1. #### Second Prize ICPC 2021 Asia Ha Noi Regional
@@ -26,6 +27,12 @@
 2. #### Silver Medal ICPC 2019 Vietnam Southern Provincial Contest (rank 17th)
 
 ## ACM-ICPC in season 2022-2023
+
+## 2022 ICPC Asia HoChiMinh City Regional Programming Contest (Date: 09/12/2022 - 8/13 Problems)
+
+[Link contest](https://olp.vnoi.info/contest/icpc22)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20Asia%20HoChiMinh%20City%20Regional%20Programming%20Contest)
 
 ## 2022 ACM-ICPC German Collegiate Programming Contest (Date: 03/12/2022 - 10/13 Problems)
 
