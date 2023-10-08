@@ -29,7 +29,7 @@
 ## ACM-ICPC in season 2023-Now
 ## 2023 ICPC Vietnam Northern Provincial Contest (Date: 8/10/2023 - 8/12 Problems)
 
-[Link contest](https://icpc-mb.vnoi.info/contest/icpc_mb)
+[Link contest](https://oj.vnoi.info/contest/icpc23_mb)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20Northern%20Provincial%20Contest)
 
