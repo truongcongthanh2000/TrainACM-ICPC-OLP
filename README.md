@@ -26,84 +26,15 @@
 1. #### Gold Medal ICPC 2019 Vietnam National Contest (rank 12th)
 2. #### Silver Medal ICPC 2019 Vietnam Southern Provincial Contest (rank 17th)
 
+## ACM-ICPC in season 2023-Now
+## 2023 ICPC Vietnam Northern Provincial Contest (Date: 8/10/2023 - 6/12 Problems)
+
+[Link contest](https://icpc-mb.vnoi.info/contest/icpc_mb)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20Northern%20Provincial%20Contest)
+
 ## ACM-ICPC in season 2022-2023
-
-## 2022 ICPC Asia HoChiMinh City Regional Programming Contest (Date: 09/12/2022 - 8/13 Problems)
-
-[Link contest](https://olp.vnoi.info/contest/icpc22)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20Asia%20HoChiMinh%20City%20Regional%20Programming%20Contest)
-
-## 2022 ACM-ICPC German Collegiate Programming Contest (Date: 03/12/2022 - 10/13 Problems)
-
-[Link contest](https://codeforces.com/gym/104059)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20German%20Collegiate%20Programming%20Contest)
-
-## 2022 ICPC NERC, Southern and Volga Russian Regional Contest (Date: 27/11/2022 - 6/14 Problems)
-
-[Link contest](https://codeforces.com/contests/1765)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20NERC,%20Southern%20and%20Volga%20Russian%20Regional%20Contest)
-
-## 2022 ICPC Seoul Regional Mirror Contest (Date: 19/11/2022 - 5/12 Problems)
-
-[Link contest](https://mirror.icpckorea.net/domjudge/public)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ICPC%20Seoul%20Regional%20Mirror%20Contest)
-## 2022 ACM-ICPC Vietnam National Programming Contest (Date: 13/11/2022 - 9/13 Problems)
-
-[Link contest](https://icpc-national.vnoi.info/contest/icpc_national22)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20Vietnam%20National%20Programming%20Contest)
-
-## 2022 ACM-ICPC Vietnam Southern Provincial Programming Contest (Date: 30/10/2022 - 9/13 Problems)
-
-[Link contest](https://icpc.hcmus.edu.vn/team/problems)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20Vietnam%20Southern%20Provincial%20Programming%20Contest)
-
-## 2022 ACM-ICPC Vietnam Central Provincial Programming Contest (Date: 23/10/2022 - 11/14 Problems)
-
-[Link contest](https://icpc-central22.bkdnoj.com/contest/icpc_central_22)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20Vietnam%20Central%20Provincial%20Programming%20Contest) Stuck at problem L: Time Limit Execeded
-
-## 2022 ACM-ICPC Vietnam Northern Provincial Programming Contest (Date: 16/10/2022 - 7/12 Problems)
-
-[Link contest](https://icpc-north22.vnoi.info/contest/icpc_northern22)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2022%20ACM-ICPC%20Vietnam%20Northern%20Provincial%20Programming%20Contest)
-
-## 2021 ICPC East-Central NA Regional Contest (Date: 24/09/2022 - 6/13 Problems)
-
-[Link contest](https://open.kattis.com/contests/yfgp5g)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20East-Central%20NA%20Regional%20Contest)
-
-## 2021 ICPC Universidad Nacional de Colombia Programming Contest (Date: 18/09/2022 - .../13 Problems)
-
-[Link contest](https://codeforces.com/gym/103577)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Universidad%20Nacional%20de%20Colombia%20Programming%20Contest)
-
-## 2021 ICPC Mid-Atlantic USA Regional Contest (Date: 28/08/2022 - 12/13 Problems)
-
-[Link contest](https://open.kattis.com/contests/cd7rid)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20Mid-Atlantic%20USA%20Regional%20Contest)
-
-## 2021 ICPC Rocky Mountain Regional Programming Contest (Date: 13/08/2022 - 11/14 Problems)
-
-[Link contest](https://open.kattis.com/contests/dz77mz)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20Rocky%20Mountain%20Regional%20Programming%20Contest)
-
-## 2021 ICPC North American Qualifier Contest (Date: 23/07/2022 - 9/14 Problems)
-
-[Link contest](https://open.kattis.com/contests/h9n4fe)
-
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2021%20ICPC%20North%20American%20Qualifier%20Contest)
+[Link to Trainning Contest ACM-ICPC season 2021-2022 (file Train2021-2022.md)](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/blob/master/Train2022-2023.md)
 
 ## ACM-ICPC in season 2021-2022
 
