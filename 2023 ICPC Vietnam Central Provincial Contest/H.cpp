@@ -50,28 +50,20 @@ void sol() {
     vector<int> a(n);
     cin >> a;
     int ans = 0;
-    vector<int> s(n, 0);
     while (m--) {
         int x, y, z;
         cin >> x >> y >> z;
         int L = 0, R = -1;
         for (int i = 0; i < n; i++) {
-            while (L < n && a[L] < a[i] + x) {
+            while (L <= i && a[L] < a[i] - y) {
                 L++;
             }
-            L = max(L, i);
-            while (R + 1 < n && a[R + 1] <= a[i] + y) {
+            while (R + 1 <= i && a[R + 1] <= a[i] - x) {
                 R++;
             }
-            if (L <= R) {
-                s[L] += 1;
-                if (R + 1 < n) s[R + 1] -= 1;
-            }
-            if (i) s[i] += s[i - 1];
-            z -= s[i];
+            z -= (R - L + 1);
             if (z <= 0) {
                 ans = max(ans, a[i]);
-                for (int j = 0; j < n; j++) s[j] = 0;
                 break;
             }
         }
