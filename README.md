@@ -33,11 +33,11 @@
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20Central%20Provincial%20Contest)
 
-## 2023 ICPC Vietnam Southern Provincial Contest (Date: 15/10/2023 - ?/13 Problems)
+## 2023 ICPC Vietnam Southern Provincial Contest (Date: 15/10/2023 - 8/13 Problems)
 
-<!-- [Link contest](https://oj.vnoi.info/contest/icpc23_mb)
+[Link contest](https://oj.vnoi.info/contest/icpc23_mn)
 
-[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20Northern%20Provincial%20Contest) -->
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20Southern%20Provincial%20Contest)
 
 ## 2023 ICPC Vietnam Northern Provincial Contest (Date: 8/10/2023 - 8/12 Problems)
 
