@@ -27,6 +27,12 @@
 2. #### Silver Medal ICPC 2019 Vietnam Southern Provincial Contest (rank 17th)
 
 ## ACM-ICPC in season 2023-Now
+## 2023 ICPC Vietnam National Contest (Date: 05/11/2023 - 7/13 Problems)
+
+[Link contest](https://oj.vnoi.info/contest/icpc23_national)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2023%20ICPC%20Vietnam%20National%20Contest)
+
 ## 2023 ICPC Vietnam Central Provincial Contest (Date: 22/10/2023 - 9/13 Problems)
 
 [Link contest](https://oj.vnoi.info/contest/icpc23_mt)
