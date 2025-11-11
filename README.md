@@ -27,7 +27,11 @@
 2. #### Silver Medal ICPC 2019 Vietnam Southern Provincial Contest (rank 17th)
 
 ## ACM-ICPC in season 2023-Now
-## 2024 ICPC Asia Taichung Regional Contest (Date: 24/11/2024 - 8/14 Problems)
+## 2025 ICPC Vietnam National Contest (Date: 09/11/2025 - 8/12 Problems)
+[Link contest](https://oj.vnoi.info/contest/icpc25_national)
+
+[Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2025%20ICPC%20Vietnam%20National%20Contest)
+## 2024 ICPC Asia Taichung Regional Contest (Date: 24/11/2024 - 9/14 Problems)
 [Link contest](https://codeforces.com/contest/2041)
 
 [Code](https://github.com/truongcongthanh2000/TrainACM-ICPC-OLP/tree/master/2024%20ICPC%20Asia%20Taichung%20Regional%20Contest)
